@@ -93,27 +93,18 @@ nav ul li a:hover {
 
 .logo-bienestarmind-container {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Centra el logo horizontalmente */
   align-items: center;
-  padding: 10px 0;
-  background-color: #f4f7f6;
-  max-width: 250px;         /* Limita el ancho del contenedor */
-  margin: 0 auto;           /* Centra el contenedor horizontalmente */
+  padding: 30px 0; /* Espaciado superior e inferior */
+  background-color: #f4f7f6; /* Asegura un fondo consistente */
 }
 
 .logo-bienestarmind-container img {
-  width: 200px;             /* Controla el tamaño fijo del logo */
+  max-width: 350px; /* Tamaño máximo para el logo, ajustado para ser notorio pero no excesivo */
   height: auto;
-  display: block;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
-}
-
-/* Versión responsive para pantallas pequeñas */
-@media (max-width: 600px) {
-  .logo-bienestarmind-container img {
-    width: 150px;
-  }
+  display: block; /* Elimina espacio extra debajo de la imagen */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil para el logo */
+  border-radius: 5px; /* Bordes ligeramente redondeados */
 }
 
 .contenido {

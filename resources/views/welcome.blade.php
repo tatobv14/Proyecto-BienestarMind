@@ -20,21 +20,19 @@
 </ul>
 </nav>
 </header>
- 
- 
-
-<div class="slides">
-<img src="{{ asset('img/sena_inspira.jpeg') }}" alt="SENA Inspira" width="50%">
-<img src="{{ asset('Imagenes_BinestarMind/animo_comunidadsena.jpeg') }}" alt="Ánimo Comunidad SENA">
-<img src="{{ asset('Imagenes_BinestarMind/fortalece_trabajoenequipo.jpeg') }}" alt="Fortalece Trabajo en Equipo">
-<img src="{{ asset('Imagenes_BinestarMind/trazabilidad_sena.jpeg') }}" alt="Trazabilidad SENA">
-<img src="{{ asset ('Imagenes_BinestarMind/sostenimiento_sena.jpg') }}" alt="sostenimiento">
-<img src="{{ asset ('Imagenes_BinestarMind/ofercta_presencial2.jpg') }}" alt="ofertapresencial2">
-<img src="{{ asset ('Imagenes_BinestarMind/feria_institucional.jpg') }}" alt="feria_institucional">
-<img src="{{ asset ('Imagenes_BinestarMind/sena_marcha.jpeg') }}" alt="marcha">
- 
+<div class="slider">
+  <div class="slides">
+    <img src="{{ asset('img/sena_inspira.jpeg') }}" alt="SENA Inspira">
+    <img src="{{ asset('img/animo_comunidadsena.jpeg') }}" alt="Ánimo Comunidad SENA">
+    <img src="{{ asset('img/fortalece_trabajoenequipo.jpeg') }}" alt="Fortalece Trabajo en Equipo">
+    <img src="{{ asset('img/trazabilidad_sena.jpeg') }}" alt="Trazabilidad SENA">
+    <img src="{{ asset('img/sostenimiento_sena.jpg') }}" alt="sostenimiento">
+    <img src="{{ asset('img/ofercta_presencial2.jpg') }}" alt="ofertapresencial2">
+    <img src="{{ asset('img/feria_institucional.jpg') }}" alt="feria_institucional">
+    <img src="{{ asset('img/sena_marcha.jpeg') }}" alt="marcha">
+  </div>
 </div>
-  
+
   <div class="logo-bienestarmind-container">
 <img src="{{ asset('/img/LOGO_BIENESTARMIND04.png') }}" alt="BienestarMind Logo">
 </div>
@@ -99,5 +97,5 @@
                                 @endauth
                             </nav>
                         @endif
-    </body>
+</body>
 </html>

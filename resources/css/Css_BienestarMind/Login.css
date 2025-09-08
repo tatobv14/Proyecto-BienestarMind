@@ -7,25 +7,24 @@ body {
     display: flex;
     flex-direction: column; /* Apilar encabezado, contenido, pie de página verticalmente */
     justify-content: space-between; /* Empujar el encabezado hacia arriba, el pie de página hacia abajo, el contenido en el medio */
-    align-items: center; /* Centrar el contenido horizontalmente */
+   /* align-items: center; /* Centrar el contenido horizontalmente */
     min-height: 100vh;
     background-color: #f4f7f6; /* Fondo verde/gris muy claro */
     color: #333;
 }
 
 header {
-    background-color: #28a745; /* Un verde fuerte y profesional */
+   /* background-color: #28a745; /* Un verde fuerte y profesional */
     color: white;
     width: 100%;
     height: 70px;
-    position: fixed; /* Mantener el encabezado fijo en la parte superior */
     top: 0;
     left: 0;
     z-index: 1000; /* Asegurar que el encabezado esté encima de otro contenido */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Sombra sutil para profundidad */
     display: flex;
     justify-content: center; /* Centrar los elementos de navegación horizontalmente */
-    align-items: center; /* Centrar los elementos de navegación verticalmente */
+   /* align-items: center; /* Centrar los elementos de navegación verticalmente */
 }
 
 nav ul {

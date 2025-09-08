@@ -8,7 +8,7 @@ body {
     display: flex; /* Usar flexbox para centrar */
     flex-direction: column; /* Apilar contenido verticalmente */
     justify-content: flex-start; /* Alinear contenido al inicio (arriba) */
-    align-items: center; /* Centrar contenido horizontalmente */
+   /* align-items: center; /* Centrar contenido horizontalmente */
     min-height: 100vh; /* Asegurar que el cuerpo ocupe toda la altura de la ventana */
     margin: 0;
     padding-top: 80px; /* Espacio para el encabezado fijo */
@@ -19,14 +19,13 @@ header {
     background-color: #28a745; /* Verde consistente para el encabezado */
     color: white;
     width: 100%; /* Encabezado de ancho completo */
-    position: fixed; /* Encabezado fijo */
     top: 0;
     left: 0;
     z-index: 1000; /* Asegurar que el encabezado esté encima */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: center; /* Centrar elementos de navegación */
-    align-items: center; /* Centrar verticalmente elementos de navegación */
+    /*align-items: center; /* Centrar verticalmente elementos de navegación */
     height: 70px; /* Altura fija para el encabezado */
 }
 
