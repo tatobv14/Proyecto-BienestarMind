@@ -30,21 +30,22 @@ Nuevo</a>
                             <td>{{ $usu->Nombres }}</td>
                             <td>{{ $usu->Apellidos }}</td>
                             <td>{{ $usu->Correo }}</td>
-                            <td><div class = "flex gap-2 justify-center">
+                            <td><div class="flex gap-4 justify-center items-center">
                                 <a href="{{ route('usuario.edit', $usu->Id_Usuario) }}"
-                                   class="px-1 py-1 bg-blue-600 text-green rounded hover:bg-sky-300">
-                                    Editar
+                                class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">
+                                Editar
                                 </a>
                                 <form action="{{ route('usuario.destroy', $usu->Id_Usuario) }}" method="POST"
-                                      style ="display:inline" onsubmit="return confirm('¿Estás seguro de que deseas eliminar a este usuario?');"
-                                      class="px-1 py-1 bg-red-300 text-black rounded hover:bg-red-300">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit">
-                                        Eliminar
-                                    </button>
+                                    onsubmit="return confirm('¿Estás seguro de que deseas eliminar a este usuario?');"
+                                    class="m-0 p-0 bg-transparent border-none">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                        class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">
+                                    Eliminar
+                                </button>
                                 </form>
-                                </div>
+                            </div>
                             </td>
                         </tr>
                     @endforeach

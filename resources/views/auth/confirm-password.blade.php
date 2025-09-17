@@ -1,11 +1,13 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <div class="logo-bienestarmind-container">
+                <img src="{{ asset('/img/LOGO_BIENESTARMIND04.png') }}" alt="BienestarMind Logo">
+            </div>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+            {{ __('Esta es un área segura de la aplicación. Confirme su contraseña antes de continuar.') }}
         </div>
 
         <x-validation-errors class="mb-4" />
@@ -20,7 +22,7 @@
 
             <div class="flex justify-end mt-4">
                 <x-button class="ms-4">
-                    {{ __('Confirm') }}
+                    {{ __('Confirmar') }}
                 </x-button>
             </div>
         </form>

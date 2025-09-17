@@ -64,16 +64,7 @@ h1 {
     padding-top: 20px; /* Espacio encima del título del formulario */
 }
 
-form {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
-    width: 100%;
-    max-width: 500px;
-    box-sizing: border-box;
-    margin-bottom: 40px; /* Espacio antes del pie de página */
-}
+
 
 label {
     display: block;
