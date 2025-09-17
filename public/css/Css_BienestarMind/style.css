@@ -1,0 +1,230 @@
+/* Estilos alineados al diseño de Login.css para Index */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f7f6; /* Fondo suave para un look limpio */
+  color: #333;
+}
+
+header {
+  background-color: #28a745; /* Verde fuerte para la cabecera */
+  color: white;
+  width: 100%;
+  height: 70px;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  display: flex;
+  justify-content: center; /* Centrar los elementos de la cabecera */
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px; /* Mayor espacio entre elementos de navegación */
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.15em; /* Tamaño de fuente ligeramente más grande */
+  padding: 10px 20px; /* Más padding para botones */
+  transition: all 0.3s ease; /* Transición suave para todos los cambios */
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  color: #e0ffe0; /* Tono de verde muy claro al pasar el ratón */
+  background-color: rgba(255, 255, 255, 0.15); /* Fondo semitransparente al pasar el ratón */
+  transform: translateY(-2px); /* Efecto de elevación sutil */
+}
+
+.slider {
+  width: 100%;
+  height: 450px; /* Altura ajustada para el carrusel */
+  overflow: hidden;
+  position: relative;
+  margin-top: 70px; /* Espacio para la cabecera fija */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra para el carrusel */
+}
+
+.slides {
+  display: flex;
+  width: 800%; /* Ajustar al número de imágenes (8 imágenes * 100%) */
+  animation: slide 64s infinite linear; /* Aumentado a 64s (8s por imagen) para un movimiento más lento y equitativo*/
+}
+
+.slides img {
+  width: 100vw;
+  height: 450px; /* Misma altura que el contenedor del slider */
+  object-fit: contain; /* Cambiado a 'contain' para que la imagen se vea completa, sin recortarse */
+  /* Si prefieres que la imagen cubra todo el espacio (y se recorte si es necesario), usa 'cover' */
+  /* object-fit: cover; */
+  flex-shrink: 0; /* Evita que las imágenes se encojan */
+}
+
+/* Ajustar los porcentajes en el keyframe para 8 imágenes y 64s de duración*/
+@keyframes slide {
+  0%, 12.5% { transform: translateX(0%); } /* Imagen 1 */
+  14.5%, 25% { transform: translateX(-100vw); } /* Imagen 2 */
+  27%, 37.5% { transform: translateX(-200vw); } /* Imagen 3 */
+  39.5%, 50% { transform: translateX(-300vw); } /* Imagen 4 */
+  52%, 62.5% { transform: translateX(-400vw); } /* Imagen 5 */
+  64.5%, 75% { transform: translateX(-500vw); } /* Imagen 6 */
+  77%, 87.5% { transform: translateX(-600vw); } /* Imagen 7 */
+  89.5%, 100% { transform: translateX(-700vw); } /* Imagen 8 */
+}
+
+
+.logo-bienestarmind-container {
+  display: flex;
+  justify-content: center; /* Centra el logo horizontalmente */
+  align-items: center;
+  padding: 30px 0; /* Espaciado superior e inferior */
+  background-color: #f4f7f6; /* Asegura un fondo consistente */
+}
+
+.logo-bienestarmind-container img {
+  max-width: 350px; /* Tamaño máximo para el logo, ajustado para ser notorio pero no excesivo */
+  height: auto;
+  display: block; /* Elimina espacio extra debajo de la imagen */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil para el logo */
+  border-radius: 5px; /* Bordes ligeramente redondeados */
+}
+
+.contenido {
+  flex: 1;
+  max-width: 900px; /* Ancho máximo ligeramente menor para más aire */
+  margin: 40px auto;
+  padding: 40px;
+  text-align: center;
+  background-color: #ffffff; /* Fondo blanco puro para el contenido */
+  border-radius: 12px; /* Bordes más redondeados */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra más suave y extendida */
+  box-sizing: border-box;
+}
+
+.contenido h2 {
+  color: #2e8b57; /* Un tono de verde más oscuro para los títulos */
+  margin-bottom: 25px; /* Más espacio debajo del título */
+  font-size: 2.2em; /* Título más grande y prominente */
+  font-weight: 700;
+  text-transform: uppercase; /* Texto en mayúsculas para profesionalismo */
+  letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.contenido p {
+  font-size: 1.1em; /* Fuente ligeramente más grande para la legibilidad */
+  line-height: 1.7; /* Mayor interlineado para mejor lectura */
+  margin-bottom: 25px;
+  color: #555; /* Un gris más suave para el texto */
+  text-align: justify;
+}
+
+/* === Estilos para el botón ACCEDER === */
+.btn.secondary-btn {
+  display: inline-block; /* Permite aplicar padding y margin */
+  padding: 15px 35px; /* Padding generoso */
+  background-color: #28a745; /* Color verde del header */
+  color: white;
+  text-decoration: none; /* Quitar el subrayado del enlace */
+  font-size: 1.2em; /* Fuente más grande */
+  font-weight: 700; /* Texto en negrita */
+  border-radius: 8px; /* Bordes redondeados */
+  border: none; /* Eliminar borde por defecto del botón */
+  cursor: pointer; /* Indicar que es clickeable */
+  transition: all 0.3s ease; /* Transición suave para hover y focus */
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); /* Sombra sutil para un efecto 3D */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 0.5px; /* Pequeño espaciado entre letras */
+  position: relative; /* Para efectos más avanzados */
+  overflow: hidden; /* Oculta el pseudo-elemento de efecto hover */
+}
+
+.btn.secondary-btn a {
+  color: inherit; /* Hereda el color del padre (.btn.secondary-btn) */
+  text-decoration: none; /* Asegura que el enlace no tenga subrayado */
+}
+
+.btn.secondary-btn:hover {
+  background-color: #218838; /* Verde ligeramente más oscuro al pasar el ratón */
+  transform: translateY(-3px); /* Pequeño levantamiento */
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.btn.secondary-btn:active {
+  transform: translateY(0); /* Vuelve a la posición original al hacer click */
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2); /* Sombra más pequeña para "presionado" */
+}
+
+/* Efecto de "ripple" (onda) al hacer click - opcional */
+.btn.secondary-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.4); /* Color de la onda */
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1);
+  transition: all 0.5s ease-out;
+}
+
+.btn.secondary-btn:active::after {
+  transform: scale(200); /* Expande la onda */
+  opacity: 1;
+  transition: 0s; /* Sin transición al activar para un efecto instantáneo */
+}
+
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  background-color: #e0ffe0; /* Tono de verde claro para el pie de página */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  margin-top: auto;
+  color: #333;
+}
+
+footer p {
+  margin-bottom: 15px; /* Espacio entre el texto del copyright y los iconos */
+  font-size: 0.95em;
+  color: #444;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Espacio entre los iconos sociales */
+}
+
+.social-icons a img {
+  width: 40px; /* Tamaño consistente para los iconos sociales */
+  height: 40px;
+  border-radius: 50%; /* Iconos circulares */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons a img:hover {
+  transform: translateY(-3px) scale(1.1); /* Efecto de elevación y zoom al pasar el ratón */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}

@@ -5,8 +5,10 @@
         </x-slot>
 
         <x-validation-errors class="mb-4" />
-
-        @session('status')
+        <head>
+<link rel="stylesheet" href="{{ asset('css/Css_BienestarMind/Login.css') }}">
+        </head>
+ @session('status')
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ $value }}
             </div>

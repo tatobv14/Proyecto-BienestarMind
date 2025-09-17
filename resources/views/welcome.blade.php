@@ -42,7 +42,7 @@
 <h2>Bienvenidos al sistema de bienestar del SENA</h2>
 <p>Accede a reservas de espacios, implementos, asesorías y actividades que fortalecen el bienestar físico y emocional de los aprendices.</p>
 <p>Ingresa con tu cuenta para gestionar tus beneficios.</p>
-<a class="btn secondary-btn" href="LoginBienestarMind.html"> ACCEDER </a>
+
  
  
   <footer>
@@ -83,7 +83,7 @@
                                         href="{{ route('login') }}"
                                         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                                     >
-                                        Log in
+                                        Ingresa 
                                     </a>
 
                                     @if (Route::has('register'))
@@ -91,7 +91,7 @@
                                             href="{{ route('register') }}"
                                             class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                                         >
-                                            Register
+                                            Registrate
                                         </a>
                                     @endif
                                 @endauth

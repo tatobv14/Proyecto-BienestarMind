@@ -1,62 +1,80 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+<x-slot name="header">
+<h2 class="font-semibold text-xl text-gray-800 leading-tight">
+{{ __('Usuarios') }}
+</h2>
+</x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-               
-            
-            
-                <table id="usuarios" class="display" style="width:100%">
-                    <thead>
+<div class="max-w-8xl mx-auto sm:px-6 lg:px-8 mt-4">
+<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+<div class="flex justify-end p-2 mr-4">
+<a href="{{ route('usuario.create') }}"
+class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3">
+Nuevo</a>
+</div>
+
+            <table id="usuario" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Id Usuario</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th >Acciones</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($usuarios as $usu)
                         <tr>
-                            <th>Id Usuario</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Correo</th>
+                            <td>{{ $usu->Id_Usuario }}</td>
+                            <td>{{ $usu->Nombres }}</td>
+                            <td>{{ $usu->Apellidos }}</td>
+                            <td>{{ $usu->Correo }}</td>
+                            <td><div class = "flex gap-2 justify-center">
+                                <a href="{{ route('usuario.edit', $usu->Id_Usuario) }}"
+                                   class="px-1 py-1 bg-blue-600 text-green rounded hover:bg-sky-300">
+                                    Editar
+                                </a>
+                                <form action="{{ route('usuario.destroy', $usu->Id_Usuario) }}" method="POST"
+                                      style ="display:inline" onsubmit="return confirm('¿Estás seguro de que deseas eliminar a este usuario?');"
+                                      class="px-1 py-1 bg-red-300 text-black rounded hover:bg-red-300">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">
+                                        Eliminar
+                                    </button>
+                                </form>
+                                </div>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($usuarios as $usu)
-                            <tr>
-                                <td>{{ $usu->Id_Usuario }}</td>
-                                <td>{{ $usu->Nombres }}</td>
-                                <td>{{ $usu->Apellidos }}</td>
-                                <td>{{ $usu->Correo }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-
-            </div>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
-    {{-- jQuery + DataTables (CDN) --}}
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-    <script>
-        $(function () {
-            $('#usuarios').DataTable({
-                pageLength: 20,
-                dom: 'Bfrtip',
+</div>
 
-                language: {
-                    url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json'
-                },
-                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-            });
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script>
+    $(function () {
+        $('#usuario').DataTable({
+            pageLength: 20,
+            dom: 'Bfrtip',
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json'
+            },
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
         });
-    </script>
+    });
+</script>
+
 </x-app-layout>

@@ -1,0 +1,81 @@
+/* Error_404.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6; /* Un fondo verde/gris muy claro para consistencia */
+    color: #333;
+    display: flex; /* Usar flexbox para centrar todo el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+  /*  align-items: center; /* Centrar verticalmente */
+    min-height: 100vh; /* Asegurar que el cuerpo ocupe toda la altura de la ventana */
+    margin: 0;
+    padding: 20px; /* Espaciado interior */
+    box-sizing: border-box; /* Incluir padding en el ancho y alto total del elemento */
+    flex-direction: column; /* Apilar elementos verticalmente */
+}
+
+.main-content {
+    text-align: center; /* Centrar el texto y los elementos internos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espacio entre el logo, contenedor y botón */
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Ancho máximo para el contenedor de mensaje */
+    width: 90%; /* Ancho responsivo */
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #28a745; /* Un color rojo anaranjado para el "404" */
+}
+
+p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #555; /* Un color de texto más suave */
+}
+
+a {
+    color: #36a2eb; /* Un color azul para enlaces */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el botón "Volver a la página principal" */
+.back-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    background-color: #28a745; /* Color verde consistente */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Asegura que se vea como un botón, no un enlace de texto */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: inline-block; /* Permite aplicar padding y márgenes correctamente */
+}
+
+.back-button:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Efecto de elevación sutil */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.back-button:active {
+    transform: translateY(0); /* Vuelve a la posición original al hacer clic */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Sombra más sutil al hacer clic */
+}

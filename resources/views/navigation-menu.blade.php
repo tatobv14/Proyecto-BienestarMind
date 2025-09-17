@@ -24,7 +24,6 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
              <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('asesorium.index') }}" :active="request()->routeIs('asesorium.*')">
                         {{ __('Asesoria') }}
@@ -43,8 +42,6 @@
                     </x-nav-link>
                 </div>
 
-=======
->>>>>>> 12cc4bc03b4c420deb8022c9ec03e7c67fb84896
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())

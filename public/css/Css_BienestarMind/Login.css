@@ -1,0 +1,225 @@
+/* Login.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Apilar encabezado, contenido, pie de página verticalmente */
+    justify-content: space-between; /* Empujar el encabezado hacia arriba, el pie de página hacia abajo, el contenido en el medio */
+   /* align-items: center; /* Centrar el contenido horizontalmente */
+    min-height: 100vh;
+    background-color: #f4f7f6; /* Fondo verde/gris muy claro */
+    color: #333;
+}
+
+header {
+   /* background-color: #28a745; /* Un verde fuerte y profesional */
+    color: white;
+    width: 100%;
+    height: 70px;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegurar que el encabezado esté encima de otro contenido */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Sombra sutil para profundidad */
+    display: flex;
+    justify-content: center; /* Centrar los elementos de navegación horizontalmente */
+   /* align-items: center; /* Centrar los elementos de navegación verticalmente */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Usar flexbox para navegación horizontal */
+}
+
+nav ul li {
+    margin: 0 15px; /* Espaciado entre elementos de navegación */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 10px 15px; /* Área clicable más grande */
+    transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f4f7f6; /* Blanco ligeramente apagado para el hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil al pasar el ratón */
+    border-radius: 5px;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.98); /* Blanco casi opaco */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    text-align: center;
+    max-width: 380px; /* Ancho máximo aumentado para un mejor equilibrio visual */
+    width: 90%;
+    margin-top: 100px; /* Espacio desde el encabezado fijo */
+    margin-bottom: 40px; /* Espacio antes del pie de página */
+    box-sizing: border-box; /* Incluir padding en el ancho y alto total del elemento */
+}
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.logo img {
+    max-width: 100%; /* Asegurar que el logo se ajuste en pantallas más pequeñas */
+    height: auto;
+}
+
+.login-form h2 {
+    color: #4CAF50; /* Un buen verde medio para los títulos */
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%; /* Ancho completo */
+    padding: 12px 15px; /* Un poco más de padding */
+    border: 1px solid #c8e6c9; /* Borde verde claro */
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-group input[type="email"]:focus,
+.input-group input[type="password"]:focus {
+    border-color: #66bb6a; /* Verde más oscuro al enfocar */
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 187, 106, 0.3); /* Resplandor más suave y ancho */
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px 15px; /* Padding aumentado para botones más grandes */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-bottom: 15px; /* Más espacio entre botones */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para botones */
+}
+
+.primary-btn {
+    background-color: #4CAF50; /* Botón verde principal */
+    color: white;
+    margin-top: 25px; /* Más espacio encima del botón principal */
+}
+
+.primary-btn:hover {
+    background-color: #43a047;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-btn {
+    background-color: #e8f5e9; /* Verde más claro para el botón secundario */
+    color: #388e3c;
+    border: 1px solid #a5d6a7;
+}
+
+.secondary-btn a {
+    text-decoration: none; /* Quitar el subrayado del enlace */
+    color: inherit; /* Heredar el color del botón */
+    display: block; /* Hacer que el enlace llene el botón */
+    padding: 0; /* Eliminar el padding interno del enlace */
+}
+
+.secondary-btn:hover {
+    background-color: #dcedc8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.secondary-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0; /* Más padding para el pie de página */
+    background-color: #e0ffe0; /* Verde más claro para el fondo del pie de página */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil en la parte superior del pie de página */
+    margin-top: auto; /* Empuja el pie de página hacia abajo */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Centrar los iconos sociales */
+    gap: 20px; /* Espacio entre iconos */
+}
+
+.social-icons a {
+    transition: transform 0.2s ease; /* Efecto de hover suave para los iconos */
+}
+
+.social-icons a:hover img {
+    transform: translateY(-3px); /* Efecto de elevación al pasar el ratón */
+}
+
+/* Ajustes responsivos para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 25px;
+        margin: 80px 20px 40px 20px; /* Ajustar margen para móvil */
+    }
+
+    .logo img {
+        width: 250px; /* Ajustar tamaño del logo para pantallas más pequeñas */
+    }
+
+    .login-form h2 {
+        font-size: 1.6em;
+    }
+
+    .btn {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+
+    header {
+        height: 60px; /* Encabezado ligeramente más pequeño en móvil */
+    }
+
+    nav ul li {
+        margin: 0 8px; /* Reducir el espaciado entre elementos de navegación en móvil */
+    }
+
+    nav ul li a {
+        font-size: 0.9em; /* Fuente más pequeña para navegación en móvil */
+        padding: 8px 10px;
+    }
+}
