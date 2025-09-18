@@ -31,7 +31,7 @@ class StoreUsuarioRequest extends FormRequest
             'Fecha_de_Nacimiento' => 'required|date',
             'Contraseña'    => 'required|string|min:8',
             'ficha_Id_ficha' => 'nullable|string|exists:ficha,Id_ficha',
-            'Id_Rol'        => 'required|integer|exists:role,Id_Rol'
+            'Id_Rol'        => 'nullable|integer|exists:roles,Id_Rol'
         ];
             
     }
@@ -43,6 +43,7 @@ class StoreUsuarioRequest extends FormRequest
         'Apellidos.required'  => 'El apellido es obligatorio.',
         'Documento.required'  => 'El documento es obligatorio.',
         'Documento.unique'    => 'Este documento ya está registrado.',
+        'Correo.unique'       => 'Este correo ya está registrado.',
         'Documento.max'       => 'El documento no puede superar 15 caracteres.',
         'Genero.max'          => 'El género no puede superar 10 caracteres.',
         'Telefono.max'        => 'El teléfono no puede superar 15 caracteres.',

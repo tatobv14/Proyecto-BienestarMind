@@ -19,6 +19,7 @@
                             <th>Id_Categoria</th>
                             <th>Estado_Elemento</th>
                             <th>Nombre_Elemento</th>
+                             <th >Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,24 @@
                                 <td>{{ $ele->Id_Categoria }}</td>
                                 <td>{{ $ele->Estado_Elemento }}</td>
                                  <td>{{ $ele->Nombre_Elemento }}</td>
+ <td><div class="flex gap-4 justify-center items-center">
+                                <a href="{{ route('elemento.edit', $ele->Id_Elemento) }}"
+                                class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">
+                                Editar
+                                </a>
+                                <form action="{{ route('elemento.destroy', $ele->Id_Elemento) }}" method="POST"
+                                    onsubmit="return confirm('¿Estás seguro de que deseas eliminar este elemento?');"
+                                    class="m-0 p-0 bg-transparent border-none">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                        class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">
+                                    Eliminar
+                                </button>
+                                </form>
+                            </div>
+                            </td>
+                
                             </tr>
                         @endforeach
                     </tbody>

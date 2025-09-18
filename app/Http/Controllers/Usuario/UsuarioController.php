@@ -23,7 +23,32 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuario.create');
+        $Nombres = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Apellidos = null;
+        $Documento = null;
+        $Correo = null;
+        $Genero = null;
+        $Telefono = null;
+        $Fecha_de_Nacimiento = null;
+        $Contraseña = null;
+        $ficha_Id_ficha = null;
+        $Id_Rol = null;
+        $usuario = new Usuario();
+        return view('usuario.create',
+        [
+            'usuario' => $usuario,
+            'Nombres' => $Nombres,
+            'Apellidos' => $Apellidos,
+            'Documento' => $Documento,
+            'Correo' => $Correo,
+            'Genero' => $Genero,
+            'Telefono' => $Telefono,
+            'Fecha_de_Nacimiento' => $Fecha_de_Nacimiento,
+            'Contraseña' => $Contraseña,
+            'ficha_Id_ficha' => $ficha_Id_ficha,
+            'Id_Rol' => $Id_Rol
+            
+        ]); 
     }
 
     /**
@@ -92,7 +117,7 @@ class UsuarioController extends Controller
     {
            try {
                 $usuario->delete(); 
-                return back()->with('ok', 'Uusario eliminado');
+                return back()->with('ok', 'Usuario eliminado');
             } catch (\Throwable $e) {
                 // Suele fallar si hay FKs (p.ej. dependientes) sin cascade
                 return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
