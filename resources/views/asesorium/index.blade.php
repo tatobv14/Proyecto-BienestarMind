@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Bienestar Mind') }}
         </h2>
         
     </x-slot>
@@ -9,7 +9,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-               
+               <div class="flex justify-end p-2 mr-4">
+<a href="{{ route('asesorium.create') }}"
+class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3">
+Nuevo</a>
+</div>
             <table id="asesoriums" class="display" style="width:100%">
                     <thead>
                         <tr>

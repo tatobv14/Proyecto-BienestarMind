@@ -5,63 +5,55 @@ namespace App\Http\Controllers\Asesorium;
 use App\Http\Controllers\Controller;
 use App\Models\Asesorium;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreAsesoriumRequest;
+use App\Http\Requests\UpdateAsesoriumRequest;
 
 class AsesoriumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $asesoriums = Asesorium::all();
         return view("asesorium.index", compact("asesoriums"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('asesorium.create', [
+    'asesorium' => new Asesorium() // o el modelo existente en edit()
+]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreAsesoriumRequest $request)
     {
-        //
+        Asesorium::create($request->validated());
+        return redirect()->route('asesorium.index')->with('ok', 'Asesoría creada');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Asesorium $asesorium)
     {
-        //
+        return view('asesorium.show', compact('asesorium'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Asesorium $asesorium)
     {
-        //
+      return view('asesorium.create', [
+    'asesorium' => new Asesorium() // o el modelo existente en edit()
+]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Asesorium $asesorium)
+    public function update(UpdateAsesoriumRequest $request, Asesorium $asesorium)
     {
-        //
+        $asesorium->update($request->validated());
+        return redirect()->route('asesorium.index')->with('ok', 'Asesoría actualizada');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Asesorium $asesorium)
     {
-        //
+        try {
+            $asesorium->delete();
+            return back()->with('ok', 'Asesoría eliminada');
+        } catch (\Throwable $e) {
+            return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+        }
     }
 }
