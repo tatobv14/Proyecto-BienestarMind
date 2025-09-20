@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\RolesPermiso;
 
+use App\Http\Controllers\Controller;
 use App\Models\RolesPermiso;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class RolesPermisoController
      */
     public function index()
     {
-        //
+        $rolespermiso = RolesPermiso::all();
+        return view('rolespermiso.index',compact('rolespermiso'));
     }
 
     /**

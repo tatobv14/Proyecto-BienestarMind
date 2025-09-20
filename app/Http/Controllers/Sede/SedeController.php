@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Sede;
 
+use App\Http\Controllers\Controller;
 use App\Models\Sede;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class SedeController
      */
     public function index()
     {
-        //
+         $sede = Sede::all();
+        return view('sede.index',compact('sede'));
     }
 
     /**

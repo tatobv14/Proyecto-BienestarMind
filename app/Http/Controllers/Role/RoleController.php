@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Role;
 
+use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class RoleController
      */
     public function index()
     {
-        //
+        $role = Role::all();
+        return view('role.index',compact('role'));
     }
 
     /**

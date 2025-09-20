@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Ficha;
 
+use App\Http\Controllers\Controller;
 use App\Models\Ficha;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class FichaController
      */
     public function index()
     {
-        //
+        $ficha = Ficha::all();
+        return view('ficha.index',compact('ficha'));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Reservaelemento;
 
+use App\Http\Controllers\Controller;
 use App\Models\Reservaelemento;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class ReservaelementoController
      */
     public function index()
     {
-        //
+        $reservaelemento = Reservaelemento::all();
+        return view('reservaelemento.index',compact('reservaelemento'));
     }
 
     /**

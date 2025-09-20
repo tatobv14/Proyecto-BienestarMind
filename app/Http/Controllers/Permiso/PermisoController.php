@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Permiso;
 
+use App\Http\Controllers\Controller;
 use App\Models\Permiso;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class PermisoController
      */
     public function index()
     {
-        //
+        $permiso = Permiso::all();
+        return view('permiso.index',compact('permiso'));
     }
 
     /**

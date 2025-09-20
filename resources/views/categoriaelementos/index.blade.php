@@ -1,21 +1,22 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Categoria Elementos') }}
         </h2>
         
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 
-            <table id="categoriaelementos" class="display" style="width:100%">
-                    
+            <table id="categoriaelementos" class="display" style="width:100%">   
                 <thead>
                         <tr>
                             <th>Id_Categoria</th>
                             <th>Descripcion</th>
+                            <th>Created_AT</th>
+                            <th>Update_AT</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,6 +25,8 @@
                                
                                 <td>{{ $cat->Id_Categoria }}</td>
                                 <td>{{ $cat->Descripcion }}</td>
+                                <td>{{ $cat->Created_AT }}</td>
+                                <td>{{ $cat->Update_AT }}</td>
                         
                         @endforeach
                     </tbody>

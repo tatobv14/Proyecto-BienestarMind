@@ -13,7 +13,8 @@ class EspacioController extends Controller
      */
     public function index()
     {
-        //
+        $espacio = Espacio::all();
+        return view('espacio.index',compact('espacio'));
     }
 
     /**

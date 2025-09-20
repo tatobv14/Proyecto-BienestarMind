@@ -19,26 +19,74 @@
 
             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('usuario.index') }}" :active="request()->routeIs('usuario.*')">
-                        {{ __('Usuario') }}
+                        {{ __('Usuarios') }}
                     </x-nav-link>
                 </div>
             </div>
 
              <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('asesorium.index') }}" :active="request()->routeIs('asesorium.*')">
-                        {{ __('Asesoria') }}
+                        {{ __('Asesorias') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('elemento.index') }}" :active="request()->routeIs('elemento.*')">
-                        {{ __('Elemento') }}
+                        {{ __('Elementos') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('categoriaelemento.index') }}" :active="request()->routeIs('categoriaelemento.*')">
-                        {{ __('Categoria Elemento') }}
+                        {{ __('Categoria Elementos') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('espacio.index') }}" :active="request()->routeIs('espacio.*')">
+                        {{ __('Espacios') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('ficha.index') }}" :active="request()->routeIs('ficha.*')">
+                        {{ __('Fichas') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('permiso.index') }}" :active="request()->routeIs('permiso.*')">
+                        {{ __('Permisos') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('reservaelemento.index') }}" :active="request()->routeIs('reservaelemento.*')">
+                        {{ __('Reserva Elementos') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('reservaespacio.index') }}" :active="request()->routeIs('reservaespacio.*')">
+                        {{ __('Reserva Espacios') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('role.index') }}" :active="request()->routeIs('role.*')">
+                        {{ __('Roles') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('rolespermiso.index') }}" :active="request()->routeIs('rolespermiso.*')">
+                        {{ __('Roles Permisos') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('sede.index') }}" :active="request()->routeIs('sede.*')">
+                        {{ __('Sedes') }}
                     </x-nav-link>
                 </div>
 

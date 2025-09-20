@@ -4,7 +4,7 @@
 {{ __('Usuarios') }}
 </h2>
 </x-slot>
-
+<div class="py-12">
 <div class="max-w-8xl mx-auto sm:px-6 lg:px-8 mt-4">
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 <div class="flex justify-end p-2 mr-4">
@@ -20,6 +20,8 @@ Nuevo</a>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Correo</th>
+                        <th>created_AT</th>
+                        <th>update_AT</th>
                         <th >Acciones</th> 
                     </tr>
                 </thead>
@@ -30,6 +32,9 @@ Nuevo</a>
                             <td>{{ $usu->Nombres }}</td>
                             <td>{{ $usu->Apellidos }}</td>
                             <td>{{ $usu->Correo }}</td>
+                            <td>{{ $usu->created_AT }}</td>
+                            <td>{{ $usu->update_AT }}</td>
+
                             <td><div class="flex gap-4 justify-center items-center">
                                 <a href="{{ route('usuario.edit', $usu->Id_Usuario) }}"
                                 class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">
