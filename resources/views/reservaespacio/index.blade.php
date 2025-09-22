@@ -8,19 +8,21 @@
 <div class="py-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
+<div class="flex justify-end p-2 mr-4">
+<a href="{{ route('reservaespacio.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
+</div>
 
             <table id="reservaespacio" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id_ReservaEspacio</th>
-                        <th>Fecha_Reserva</th>
-                        <th>Id_Usuario</th>
-                        <th>Id_Espacio</th>
-                        <th>Duracion</th>
-                        <th>Created_AT</th>
-                        <th>Update_AT</th>
-                        <th >Acciones</th> 
+                        <th>Identificador de la reserva del espacio</th>
+                        <th>Fecha de Reserva</th>
+                        <th>Identificador del Usuario</th>
+                        <th>Identificador del Espacio</th>
+                        <th>Duración</th>
+                        <th>Creado</th>
+                        <th>Última modificación</th>
+                        <th>Acciones</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -31,10 +33,19 @@
                             <td>{{ $resesp->Id_Usuario }}</td>
                             <td>{{ $resesp->Id_Espacio }}</td>
                             <td>{{ $resesp->Duracion }}</td>
-                            <td>{{ $resesp->Created_AT }}</td>
-                            <td>{{ $resesp->Update_AT }}</td>
-                            <td>{{ $resesp->Acciones }}</td>
-
+                            <td>{{ $resesp->created_AT }}</td>
+                            <td>{{ $resesp->update_AT }}</td>
+                            <td>
+                                <div class="flex gap-4 justify-center items-center">
+                                    <a href="{{ route('reservaespacio.edit', $resesp->Id_ReservaEspacio) }}" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">Editar</a>
+                                    <form action="{{ route('reservaespacio.destroy', $resesp->Id_ReservaEspacio) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva de espacio?');" class="m-0 p-0 bg-transparent border-none">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
                           
                     @endforeach
                 </tbody>

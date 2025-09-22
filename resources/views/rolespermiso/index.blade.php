@@ -8,15 +8,19 @@
 <div class="py-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
+<div class="flex justify-end p-2 mr-4">
+<a href="{{ route('rolespermiso.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
+</div>
 
             <table id="rolespermiso" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id_roles_permisos</th>
-                        <th>Id_Rol</th>
-                        <th>Id_Permiso</th>
-                        <th >Acciones</th> 
+                        <th>Id</th>
+                        <th>Identificador del rol</th>
+                        <th>Identificador del permiso</th>
+                        <th>Creado</th>
+                        <th>Última modificación</th>
+                        <th>Acciones</th>  
                     </tr>
                 </thead>
                 <tbody>
@@ -25,8 +29,19 @@
                             <td>{{ $rolper->Id_roles_permisos }}</td>
                             <td>{{ $rolper->Id_Rol }}</td>
                             <td>{{ $rolper->Id_Permiso }}</td>
-                            <td>{{ $rolper->Acciones }}</td>
-
+                            <td>{{ $rolper->created_AT }}</td>
+                            <td>{{ $rolper->update_AT }}</td>
+                            <td>
+                                <div class="flex gap-4 justify-center items-center">
+                                    <a href="{{ route('rolespermiso.edit', $rolper->Id_roles_permisos) }}" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">Editar</a>
+                                    <form action="{{ route('rolespermiso.destroy', $rolper->Id_roles_permisos) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este Rol Permiso?');" class="m-0 p-0 bg-transparent border-none">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>   
                           
                     @endforeach
                 </tbody>

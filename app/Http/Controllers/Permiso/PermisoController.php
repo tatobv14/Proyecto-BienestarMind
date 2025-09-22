@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Permiso;
 use App\Http\Controllers\Controller;
 use App\Models\Permiso;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StorePermisoRequest;
+use App\Http\Requests\UpdatePermisoRequest;
 class PermisoController
 {
     /**
@@ -28,7 +29,7 @@ class PermisoController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePermisoRequest $request)
     {
         //
     }
@@ -52,7 +53,7 @@ class PermisoController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Permiso $permiso)
+    public function update(UpdatePermisoRequest $request, Permiso $permiso)
     {
         //
     }

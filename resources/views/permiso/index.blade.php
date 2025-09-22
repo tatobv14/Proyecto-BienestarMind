@@ -8,17 +8,18 @@
 <div class="py-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
+<div class="flex justify-end p-2 mr-4">
+<a href="{{ route('permiso.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
+</div>
 
             <table id="permiso" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id_Permiso</th>
-                        <th>Descripcion</th>
-                        <th>Created_AT</th>
-                        <th>Update_AT</th>
-                        <th >Acciones</th>
-                       
+                        <th>Identificador del Permiso</th>
+                        <th>Descripción</th>
+                        <th>Creado</th>
+                        <th>Última modificación</th>
+                        <th>Acciones</th>                       
                     </tr>
                 </thead>
                 <tbody>
@@ -26,10 +27,19 @@
                         <tr>
                             <td>{{ $per->Id_Permiso }}</td>
                             <td>{{ $per->Descripcion }}</td>
-                            <td>{{ $per->Created_AT }}</td>
-                            <td>{{ $per->Update_AT }}</td>
-                            <td>{{ $per->Acciones }}</td>
-
+                            <td>{{ $per->created_AT }}</td>
+                            <td>{{ $per->update_AT }}</td>
+                            <td>
+                                <div class="flex gap-4 justify-center items-center">
+                                    <a href="{{ route('permiso.edit', $per->Id_Permiso) }}" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">Editar</a>
+                                    <form action="{{ route('permiso.destroy', $per->Id_Permiso) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este permiso?');" class="m-0 p-0 bg-transparent border-none">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

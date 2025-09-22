@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * Class CategoriaElemento
  * 
  * @property int $Id_Categoria
- * @property string|null $Descripcion
- * @property Carbon|null $Created_AT
- * @property Carbon|null $Update_AT
+ * @property string $Descripcion
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
  * @property Collection|Elemento[] $elementos
  *
@@ -29,14 +29,14 @@ class CategoriaElemento extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'Created_AT' => 'datetime',
-		'Update_AT' => 'datetime'
+		'created_AT' => 'datetime',
+		'update_AT' => 'datetime'
 	];
 
 	protected $fillable = [
 		'Descripcion',
-		'Created_AT',
-		'Update_AT'
+		'created_AT',
+		'update_AT'
 	];
 
 	public function elementos()

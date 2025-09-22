@@ -5,7 +5,8 @@ namespace App\Http\Controllers\RolesPermiso;
 use App\Http\Controllers\Controller;
 use App\Models\RolesPermiso;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreRolesPermisoRequest;
+use App\Http\Requests\UpdateRolesPermisoRequest;
 class RolesPermisoController
 {
     /**
@@ -28,7 +29,7 @@ class RolesPermisoController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRolesPermisoRequest $request)
     {
         //
     }
@@ -52,7 +53,7 @@ class RolesPermisoController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, RolesPermiso $rolesPermiso)
+    public function update(UpdateRolesPermisoRequest $request, RolesPermiso $rolesPermiso)
     {
         //
     }

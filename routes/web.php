@@ -13,6 +13,8 @@ use App\Http\Controllers\Reservaespacio\ReservaespacioController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\RolesPermiso\RolesPermisoController;
 use App\Http\Controllers\Sede\SedeController;
+use App\Http\Controllers\usuarioFicha\usuarioFichaController;
+use App\Http\Controllers\usuarioRole\usuarioRoleController;
 
 
 Route::get('/', function () {
@@ -67,6 +69,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
     ->resource('sede', SedeController::class)
     ->names('sede');
+
+    Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
+    ->resource('usuarioficha', usuarioFichaController::class)
+    ->names('usuarioficha');
+
+    Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
+    ->resource('usuariorole', UsuarioRoleController::class)
+    ->names('usuariorole');
 
 Route::middleware([
     'auth:sanctum',

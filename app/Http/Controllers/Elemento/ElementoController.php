@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Elemento;
 use App\Http\Controllers\Controller;
 use App\Models\Elemento;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreElementoRequest;
+use App\Http\Requests\UpdateElementoRequest;
 
 class ElementoController extends Controller
 {
@@ -28,7 +30,7 @@ class ElementoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreElementoRequest $request)
     {
         //
     }
@@ -52,7 +54,7 @@ class ElementoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Elemento $elemento)
+    public function update(UpdateElementoRequest $request, Elemento $elemento)
     {
         //
     }

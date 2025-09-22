@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $Id_roles_permisos
  * @property int $Id_Rol
  * @property int $Id_Permiso
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
  * @property Role $role
  * @property Permiso $permiso
@@ -28,12 +31,16 @@ class RolesPermiso extends Model
 
 	protected $casts = [
 		'Id_Rol' => 'int',
-		'Id_Permiso' => 'int'
+		'Id_Permiso' => 'int',
+		'created_AT' => 'datetime',
+		'update_AT' => 'datetime'
 	];
 
 	protected $fillable = [
 		'Id_Rol',
-		'Id_Permiso'
+		'Id_Permiso',
+		'created_AT',
+		'update_AT'
 	];
 
 	public function role()

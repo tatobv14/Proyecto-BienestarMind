@@ -5,3 +5,6 @@
 [x-cloak] {
     display: none;
 }
+.max-w-8xl {
+  max-width: 120rem;
+}

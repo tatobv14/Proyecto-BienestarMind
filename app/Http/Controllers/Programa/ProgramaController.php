@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Programa;
 
 use App\Models\Programa;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreProgramaRequest;
+use App\Http\Requests\UpdateProgramaRequest;
 class ProgramaController
 {
     /**
@@ -26,7 +27,7 @@ class ProgramaController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProgramaRequest $request)
     {
         //
     }
@@ -50,7 +51,7 @@ class ProgramaController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Programa $programa)
+    public function update(UpdateProgramaRequest $request, Programa $programa)
     {
         //
     }

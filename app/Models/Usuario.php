@@ -22,16 +22,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Telefono
  * @property Carbon $Fecha_de_Nacimiento
  * @property string $Contraseña
- * @property string $ficha_Id_ficha
- * @property int $Id_Rol
  * @property Carbon $created_AT
  * @property Carbon $update_AT
  * 
- * @property Role $role
- * @property Ficha $ficha
  * @property Collection|Asesorium[] $asesoria
  * @property Collection|Reservaelemento[] $reservaelementos
  * @property Collection|Reservaespacio[] $reservaespacios
+ * @property Collection|Ficha[] $fichas
+ * @property Collection|Role[] $roles
  *
  * @package App\Models
  */
@@ -43,7 +41,6 @@ class Usuario extends Model
 
 	protected $casts = [
 		'Fecha_de_Nacimiento' => 'datetime',
-		'Id_Rol' => 'int',
 		'created_AT' => 'datetime',
 		'update_AT' => 'datetime'
 	];
@@ -57,21 +54,9 @@ class Usuario extends Model
 		'Telefono',
 		'Fecha_de_Nacimiento',
 		'Contraseña',
-		'ficha_Id_ficha',
-		'Id_Rol',
 		'created_AT',
 		'update_AT'
 	];
-
-	public function role()
-	{
-		return $this->belongsTo(Role::class, 'Id_Rol');
-	}
-
-	public function ficha()
-	{
-		return $this->belongsTo(Ficha::class, 'ficha_Id_ficha');
-	}
 
 	public function asesoria()
 	{
@@ -86,5 +71,17 @@ class Usuario extends Model
 	public function reservaespacios()
 	{
 		return $this->hasMany(Reservaespacio::class, 'Id_Usuario');
+	}
+
+	public function fichas()
+	{
+		return $this->belongsToMany(Ficha::class, 'usuario_ficha', 'Id_Usuario', 'Id_ficha')
+					->withPivot('Id_usuario_ficha', 'created_AT', 'update_AT');
+	}
+
+	public function roles()
+	{
+		return $this->belongsToMany(Role::class, 'usuario_roles', 'Id_Usuario', 'Id_Rol')
+					->withPivot('Id_usuario_roles', 'created_AT', 'update_AT');
 	}
 }

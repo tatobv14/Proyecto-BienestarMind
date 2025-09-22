@@ -17,8 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $descripcion
  * @property string $jornada_ficha
  * @property int $Id_Programa
- * @property Carbon $Created_AT
- * @property Carbon $Update_AT
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
  * @property Programa $programa
  * @property Collection|Asesorium[] $asesoria
@@ -37,16 +37,16 @@ class Ficha extends Model
 
 	protected $casts = [
 		'Id_Programa' => 'int',
-		'Created_AT' => 'datetime',
-		'Update_AT' => 'datetime'
+		'created_AT' => 'datetime',
+		'update_AT' => 'datetime'
 	];
 
 	protected $fillable = [
 		'descripcion',
 		'jornada_ficha',
 		'Id_Programa',
-		'Created_AT',
-		'Update_AT'
+		'created_AT',
+		'update_AT'
 	];
 
 	public function programa()
@@ -61,16 +61,17 @@ class Ficha extends Model
 
 	public function reservaelementos()
 	{
-		return $this->hasMany(Reservaelemento::class, 'Ficha');
+		return $this->hasMany(Reservaelemento::class, 'Id_ficha');
 	}
 
 	public function reservaespacios()
 	{
-		return $this->hasMany(Reservaespacio::class, 'Ficha');
+		return $this->hasMany(Reservaespacio::class, 'Id_ficha');
 	}
 
 	public function usuarios()
 	{
-		return $this->hasMany(Usuario::class, 'ficha_Id_ficha');
+		return $this->belongsToMany(Usuario::class, 'usuario_ficha', 'Id_ficha', 'Id_Usuario')
+					->withPivot('Id_usuario_ficha', 'created_AT', 'update_AT');
 	}
 }

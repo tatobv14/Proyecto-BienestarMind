@@ -8,18 +8,20 @@
 <div class="py-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
+<div class="flex justify-end p-2 mr-4">
+<a href="{{ route('reservaelemento.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
+</div>
 
             <table id="reservaelemento" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id_ReservaElemento</th>
-                        <th>Fecha_Reserva</th>
-                        <th>Id_Usuario</th>
-                        <th>Id_Elemento</th>
-                        <th>Created_AT</th>
-                        <th>Update_AT</th>
-                        <th >Acciones</th> 
+                        <th>Identificador de la reserva del elemento</th>
+                        <th>Fecha de Reserva</th>
+                        <th>Identificador del usuario</th>
+                        <th>Identificador del Elemento</th>
+                        <th>Creado</th>
+                        <th>Última modificación</th>
+                        <th>Acciones</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -29,10 +31,19 @@
                             <td>{{ $reser->Fecha_Reserva }}</td>
                             <td>{{ $reser->Id_Usuario }}</td>
                             <td>{{ $reser->Id_Elemento }}</td>
-                            <td>{{ $reser->Created_AT }}</td>
-                            <td>{{ $reser->Update_AT }}</td>
-                            <td>{{ $reser->Acciones }}</td>
-
+                            <td>{{ $reser->created_AT }}</td>
+                            <td>{{ $reser->update_AT }}</td>
+                            <td>
+                                <div class="flex gap-4 justify-center items-center">
+                                    <a href="{{ route('reservaelemento.edit', $reser->Id_ReservaElemento) }}" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">Editar</a>
+                                    <form action="{{ route('reservaelemento.destroy', $reser->Id_ReservaElemento) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva de elemento?');" class="m-0 p-0 bg-transparent border-none">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>   
                           
                     @endforeach
                 </tbody>

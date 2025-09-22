@@ -13,13 +13,13 @@ use Illuminate\Database\Eloquent\Model;
  * Class Reservaelemento
  * 
  * @property int $Id_ReservaElemento
- * @property Carbon|null $Fecha_Reserva
- * @property string|null $Descripcion_Reserva
- * @property string|null $Ficha
+ * @property Carbon $Fecha_Reserva
+ * @property string $Descripcion_Reserva
+ * @property string|null $Id_ficha
  * @property int|null $Id_Usuario
  * @property int|null $Id_Elemento
- * @property Carbon|null $Created_AT
- * @property Carbon|null $Update_AT
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
  * @property Ficha|null $ficha
  * @property Usuario|null $usuario
@@ -37,23 +37,23 @@ class Reservaelemento extends Model
 		'Fecha_Reserva' => 'datetime',
 		'Id_Usuario' => 'int',
 		'Id_Elemento' => 'int',
-		'Created_AT' => 'datetime',
-		'Update_AT' => 'datetime'
+		'created_AT' => 'datetime',
+		'update_AT' => 'datetime'
 	];
 
 	protected $fillable = [
 		'Fecha_Reserva',
 		'Descripcion_Reserva',
-		'Ficha',
+		'Id_ficha',
 		'Id_Usuario',
 		'Id_Elemento',
-		'Created_AT',
-		'Update_AT'
+		'created_AT',
+		'update_AT'
 	];
 
 	public function ficha()
 	{
-		return $this->belongsTo(Ficha::class, 'Ficha');
+		return $this->belongsTo(Ficha::class, 'Id_ficha');
 	}
 
 	public function usuario()

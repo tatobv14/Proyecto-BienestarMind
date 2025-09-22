@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crear Usuario') }}
+            {{ __('Editar Usuario') }}
         </h2>
     </x-slot>
 
@@ -24,9 +24,7 @@
                                     'Genero' => $Genero,
                                     'Telefono' => $Telefono,
                                     'Fecha_de_Nacimiento' => $Fecha_de_Nacimiento,
-                                    'Contraseña' => $Contraseña,
-                                    'ficha_Id_ficha' => $ficha_Id_ficha,
-                                    'Id_Rol' => $Id_Rol
+                                    'Contraseña' => $Contraseña
                                 ])
 
                                 <div class="pt-4 flex gap-3">

@@ -16,8 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $Id_Programa
  * @property string $Nombre_programa
  * @property string $Descripcion
- * @property Carbon $Created_AT
- * @property Carbon $Update_AT
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
  * @property Collection|Ficha[] $fichas
  *
@@ -30,15 +30,15 @@ class Programa extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'Created_AT' => 'datetime',
-		'Update_AT' => 'datetime'
+		'created_AT' => 'datetime',
+		'update_AT' => 'datetime'
 	];
 
 	protected $fillable = [
 		'Nombre_programa',
 		'Descripcion',
-		'Created_AT',
-		'Update_AT'
+		'created_AT',
+		'update_AT'
 	];
 
 	public function fichas()

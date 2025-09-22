@@ -8,21 +8,19 @@
 <div class="max-w-8xl mx-auto sm:px-6 lg:px-8 mt-4">
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 <div class="flex justify-end p-2 mr-4">
-<a href="{{ route('usuario.create') }}"
-class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3">
-Nuevo</a>
+<a href="{{ route('usuario.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
 </div>
 
             <table id="usuario" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id Usuario</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
+                        <th>Identificador del Usuario</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
                         <th>Correo</th>
-                        <th>created_AT</th>
-                        <th>update_AT</th>
-                        <th >Acciones</th> 
+                        <th>Creado</th>
+                        <th>Última modificación</th>
+                        <th>Acciones</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -34,23 +32,15 @@ Nuevo</a>
                             <td>{{ $usu->Correo }}</td>
                             <td>{{ $usu->created_AT }}</td>
                             <td>{{ $usu->update_AT }}</td>
-
-                            <td><div class="flex gap-4 justify-center items-center">
-                                <a href="{{ route('usuario.edit', $usu->Id_Usuario) }}"
-                                class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">
-                                Editar
-                                </a>
-                                <form action="{{ route('usuario.destroy', $usu->Id_Usuario) }}" method="POST"
-                                    onsubmit="return confirm('¿Estás seguro de que deseas eliminar a este usuario?');"
-                                    class="m-0 p-0 bg-transparent border-none">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                        class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">
-                                    Eliminar
-                                </button>
-                                </form>
-                            </div>
+                            <td>
+                                <div class="flex gap-4 justify-center items-center">
+                                    <a href="{{ route('usuario.edit', $usu->Id_Usuario) }}" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">Editar</a>
+                                    <form action="{{ route('usuario.destroy', $usu->Id_Usuario) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar a este usuario?');" class="m-0 p-0 bg-transparent border-none">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">Eliminar</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

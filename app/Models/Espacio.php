@@ -14,12 +14,12 @@ use Illuminate\Database\Eloquent\Model;
  * Class Espacio
  * 
  * @property int $Id_Espacio
- * @property int|null $Id_Sede
- * @property string|null $Nombre_del_espacio
- * @property Carbon|null $Created_AT
- * @property Carbon|null $Update_AT
+ * @property int $Id_Sede
+ * @property string $Nombre_del_espacio
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
- * @property Sede|null $sede
+ * @property Sede $sede
  * @property Collection|Reservaespacio[] $reservaespacios
  *
  * @package App\Models
@@ -32,15 +32,15 @@ class Espacio extends Model
 
 	protected $casts = [
 		'Id_Sede' => 'int',
-		'Created_AT' => 'datetime',
-		'Update_AT' => 'datetime'
+		'created_AT' => 'datetime',
+		'update_AT' => 'datetime'
 	];
 
 	protected $fillable = [
 		'Id_Sede',
 		'Nombre_del_espacio',
-		'Created_AT',
-		'Update_AT'
+		'created_AT',
+		'update_AT'
 	];
 
 	public function sede()

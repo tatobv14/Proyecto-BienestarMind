@@ -6,20 +6,24 @@
 </x-slot>
 
 <div class="py-12">
+    
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
+            
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
+                <div class="flex justify-end p-2 mr-4">
+<a href="{{ route('sede.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
+</div>
 
             <table id="sede" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id_Sede</th>
-                        <th>Nombre_sede</th>
-                        <th>Telefono_sede</th>
-                        <th>Direccion_sede</th>
-                        <th>Created_AT</th>
-                        <th>Update_AT</th>
-                        <th >Acciones</th> 
+                        <th>Identificador de la Sede</th>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Creado</th>
+                        <th>Última modificación</th>
+                        <th>Acciones</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -29,11 +33,19 @@
                             <td>{{ $sede->Nombre_sede }}</td>
                             <td>{{ $sede->Telefono_sede }}</td>
                             <td>{{ $sede->Direccion_sede }}</td>
-                            <td>{{ $sede->Created_AT }}</td>
-                            <td>{{ $sede->Update_AT }}</td>
-                            <td>{{ $sede->Acciones }}</td>
-
-                          
+                            <td>{{ $sede->created_AT }}</td>
+                            <td>{{ $sede->update_AT }}</td>
+                            <td>
+                                <div class="flex gap-4 justify-center items-center">
+                                    <a href="{{ route('sede.edit', $sede->Id_Sede) }}" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">Editar</a>
+                                    <form action="{{ route('sede.destroy', $sede->Id_Sede) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta sede?');" class="m-0 p-0 bg-transparent border-none">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>                          
                     @endforeach
                 </tbody>
             </table>

@@ -29,9 +29,7 @@ class StoreUsuarioRequest extends FormRequest
             'Genero'        => 'nullable|string|max:10',
             'Telefono'      => 'nullable|string|max:15',
             'Fecha_de_Nacimiento' => 'required|date',
-            'Contraseña'    => 'required|string|min:8',
-            'ficha_Id_ficha' => 'nullable|string|exists:ficha,Id_ficha',
-            'Id_Rol'        => 'nullable|integer|exists:roles,Id_Rol'
+            'Contraseña'    => 'required|string|min:8'
         ];
             
     }

@@ -13,15 +13,15 @@ use Illuminate\Database\Eloquent\Model;
  * Class Asesorium
  * 
  * @property int $Id_Asesoria
- * @property string|null $Motivo_asesoria
- * @property Carbon|null $Fecha
- * @property int|null $Id_Usuario_Recibe
- * @property int|null $Id_Usuario_Asesor
+ * @property string $Motivo_asesoria
+ * @property Carbon $Fecha
+ * @property int $Id_Usuario_Recibe
+ * @property int $Id_Usuario_Asesor
  * @property string|null $ficha_Id_ficha
- * @property Carbon|null $created_AT
- * @property Carbon|null $update_AT
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
- * @property Usuario|null $usuario
+ * @property Usuario $usuario
  * @property Ficha|null $ficha
  *
  * @package App\Models

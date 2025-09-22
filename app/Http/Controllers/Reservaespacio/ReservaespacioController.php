@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Reservaespacio;
 use App\Http\Controllers\Controller;
 use App\Models\Reservaespacio;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreReservaespacioRequest;
+use App\Http\Requests\UpdateReservaespacioRequest;
 class ReservaespacioController
 {
     /**
@@ -28,7 +29,7 @@ class ReservaespacioController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreReservaespacioRequest $request)
     {
         //
     }
@@ -52,7 +53,7 @@ class ReservaespacioController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reservaespacio $reservaespacio)
+    public function update(UpdateReservaespacioRequest $request, Reservaespacio $reservaespacio)
     {
         //
     }

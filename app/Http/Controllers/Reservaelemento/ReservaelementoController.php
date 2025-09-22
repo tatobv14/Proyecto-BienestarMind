@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Reservaelemento;
 use App\Http\Controllers\Controller;
 use App\Models\Reservaelemento;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreReservaelementoRequest;
+use App\Http\Requests\UpdateReservaelementoRequest;
 class ReservaelementoController
 {
     /**
@@ -28,7 +29,7 @@ class ReservaelementoController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreReservaelementoRequest $request)
     {
         //
     }
@@ -52,7 +53,7 @@ class ReservaelementoController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reservaelemento $reservaelemento)
+    public function update(UpdateReservaelementoRequest $request, Reservaelemento $reservaelemento)
     {
         //
     }

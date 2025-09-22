@@ -9,14 +9,17 @@
     <div class="py-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                
+               <div class="flex justify-end p-2 mr-4">
+<a href="{{ route('categoriaelemento.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
+</div>
             <table id="categoriaelementos" class="display" style="width:100%">   
                 <thead>
                         <tr>
-                            <th>Id_Categoria</th>
-                            <th>Descripcion</th>
-                            <th>Created_AT</th>
-                            <th>Update_AT</th>
+                            <th>Identificador de la categoría</th>
+                            <th>Descripción</th>
+                            <th>Creado</th>
+                            <th>Última modificación</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,9 +28,18 @@
                                
                                 <td>{{ $cat->Id_Categoria }}</td>
                                 <td>{{ $cat->Descripcion }}</td>
-                                <td>{{ $cat->Created_AT }}</td>
-                                <td>{{ $cat->Update_AT }}</td>
-                        
+                                <td>{{ $cat->created_AT }}</td>
+                                <td>{{ $cat->update_AT }}</td>
+                                <td>
+                                    <div class="flex gap-4 justify-center items-center">
+                                        <a href="{{ route('categoriaelemento.edit', $cat->Id_Categoria) }}" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">Editar</a>
+                                        <form action="{{ route('categoriaelemento.destroy', $cat->Id_Categoria) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta categoría?');" class="m-0 p-0 bg-transparent border-none">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">Eliminar</button>
+                                        </form>
+                                    </div>
+                                </td>
                         @endforeach
                     </tbody>
                 </table>

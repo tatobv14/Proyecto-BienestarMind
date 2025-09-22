@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Sede;
 use App\Http\Controllers\Controller;
 use App\Models\Sede;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreSedeRequest;
+use App\Http\Requests\UpdateSedeRequest;
 class SedeController
 {
     /**
@@ -28,7 +29,7 @@ class SedeController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreSedeRequest $request)
     {
         //
     }
@@ -52,7 +53,7 @@ class SedeController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sede $sede)
+    public function update(UpdateSedeRequest $request, Sede $sede)
     {
         //
     }

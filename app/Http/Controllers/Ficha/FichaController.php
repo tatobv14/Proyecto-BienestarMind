@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Ficha;
 use App\Http\Controllers\Controller;
 use App\Models\Ficha;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreFichaRequest;
+use App\Http\Requests\UpdateFichaRequest;
 class FichaController
 {
     /**
@@ -28,7 +29,7 @@ class FichaController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreFichaRequest $request)
     {
         //
     }
@@ -52,7 +53,7 @@ class FichaController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ficha $ficha)
+    public function update(UpdateFichaRequest $request, Ficha $ficha)
     {
         //
     }

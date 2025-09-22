@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Role;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreRoleRequest;
+use App\Http\Requests\UpdateRoleRequest;
 class RoleController
 {
     /**
@@ -28,7 +29,7 @@ class RoleController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRoleRequest $request)
     {
         //
     }
@@ -52,7 +53,7 @@ class RoleController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Role $role)
+    public function update(UpdateRoleRequest $request, Role $role)
     {
         //
     }

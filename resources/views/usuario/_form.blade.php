@@ -51,10 +51,12 @@
 
         <div>
             <label class="block text-sm font-medium mb-1">Fecha de Nacimiento</label>
-            <input type="date" name="Fecha_de_Nacimiento" value="{{ $val('Fecha_de_Nacimiento') }}"
+            <input type="date" name="Fecha_de_Nacimiento" value="{{ \Carbon\Carbon::parse($val('Fecha_de_Nacimiento'))->format('Y-m-d') }}"
                    class="w-full border rounded px-3 py-2" required>
             @error('Fecha_de_Nacimiento')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
         </div>
+
+    
 
         <div>
             <label class="block text-sm font-medium mb-1">Contraseña</label>
@@ -63,18 +65,5 @@
             @error('Contraseña')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
         </div>
 
-        <div>
-            <label class="block text-sm font-medium mb-1">Ficha</label>
-            <input type="text" name="ficha_Id_ficha" value="{{ $val('Ficha') }}"
-                   class="w-full border rounded px-3 py-2" required>
-            @error('Ficha')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
-        </div>
-
-        <div style="display: none;">
-            <label class="block text-sm font-medium mb-1">Rol</label>
-            <input type="text" name="Id_Rol" value="1"
-                   class="w-full border rounded px-3 py-2" required>
-            @error('Rol')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
-        </div>
     </div>
 </div>

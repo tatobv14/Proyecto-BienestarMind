@@ -5,6 +5,8 @@ namespace App\Http\Controllers\CategoriaElemento;
 use App\Http\Controllers\Controller;
 use App\Models\CategoriaElemento;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoriaElementoRequest;
+use App\Http\Requests\UpdateCategoriaElementoRequest;
 
 class CategoriaElementoController extends Controller
 {
@@ -28,7 +30,7 @@ class CategoriaElementoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategoriaElementoRequest $request)
     {
         //
     }
@@ -52,7 +54,7 @@ class CategoriaElementoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CategoriaElemento $categoriaElemento)
+    public function update(UpdateCategoriaElementoRequest $request, CategoriaElemento $categoriaElemento)
     {
         //
     }

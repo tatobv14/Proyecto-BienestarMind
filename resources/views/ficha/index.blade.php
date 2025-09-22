@@ -8,18 +8,19 @@
 <div class="py-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
-
+                <div class="flex justify-end p-2 mr-4">
+<a href="{{ route('ficha.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
+</div>
             <table id="ficha" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id_ficha</th>
-                        <th>Id_Programa</th>
-                        <th>descripcion</th>
-                        <th>jornada_ficha</th>
-                        <th>Created_AT</th>
-                        <th>Update_AT</th>
-                        <th >Acciones</th> 
+                        <th>Identificador de la ficha</th>
+                        <th>Identificador del programa</th>
+                        <th>Descripción</th>
+                        <th>Jornada</th>
+                        <th>Creado</th>
+                        <th>Última modificación</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,10 +30,19 @@
                             <td>{{ $fic->Id_Programa }}</td>
                             <td>{{ $fic->descripcion }}</td>
                             <td>{{ $fic->jornada_ficha }}</td>
-                            <td>{{ $fic->Created_AT }}</td>
-                            <td>{{ $fic->Update_AT }}</td>
-                            <td>{{ $fic->Acciones }}</td>
-
+                            <td>{{ $fic->created_AT }}</td>
+                            <td>{{ $fic->update_AT }}</td>
+                            <td>
+                                <div class="flex gap-4 justify-center items-center">
+                                    <a href="{{ route('ficha.edit', $fic->Id_ficha) }}" class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-200">Editar</a>
+                                    <form action="{{ route('ficha.destroy', $fic->Id_ficha) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta ficha?');" class="m-0 p-0 bg-transparent border-none">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 transition duration-200">Eliminar</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
                           
                     @endforeach
                 </tbody>

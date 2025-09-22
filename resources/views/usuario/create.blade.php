@@ -22,9 +22,7 @@
                                     'Genero' => $Genero,
                                     'Telefono' => $Telefono,
                                     'Fecha_de_Nacimiento' => $Fecha_de_Nacimiento,
-                                    'Contraseña' => $Contraseña,
-                                    'ficha_Id_ficha' => $ficha_Id_ficha,
-                                    'Id_Rol' => $Id_Rol
+                                    'Contraseña' => $Contraseña
                                 ])
 
                                 <div class="pt-4 flex gap-3">                                    

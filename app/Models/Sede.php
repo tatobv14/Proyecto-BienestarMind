@@ -14,11 +14,11 @@ use Illuminate\Database\Eloquent\Model;
  * Class Sede
  * 
  * @property int $Id_Sede
- * @property string|null $Nombre_sede
- * @property string|null $Telefono_sede
- * @property string|null $Direccion_sede
- * @property Carbon|null $Created_AT
- * @property Carbon|null $Update_AT
+ * @property string $Nombre_sede
+ * @property string $Telefono_sede
+ * @property string $Direccion_sede
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
  * @property Collection|Espacio[] $espacios
  *
@@ -31,16 +31,16 @@ class Sede extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'Created_AT' => 'datetime',
-		'Update_AT' => 'datetime'
+		'created_AT' => 'datetime',
+		'update_AT' => 'datetime'
 	];
 
 	protected $fillable = [
 		'Nombre_sede',
 		'Telefono_sede',
 		'Direccion_sede',
-		'Created_AT',
-		'Update_AT'
+		'created_AT',
+		'update_AT'
 	];
 
 	public function espacios()

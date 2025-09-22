@@ -31,8 +31,6 @@ class UsuarioController extends Controller
         $Telefono = null;
         $Fecha_de_Nacimiento = null;
         $Contraseña = null;
-        $ficha_Id_ficha = null;
-        $Id_Rol = null;
         $usuario = new Usuario();
         return view('usuario.create',
         [
@@ -44,9 +42,7 @@ class UsuarioController extends Controller
             'Genero' => $Genero,
             'Telefono' => $Telefono,
             'Fecha_de_Nacimiento' => $Fecha_de_Nacimiento,
-            'Contraseña' => $Contraseña,
-            'ficha_Id_ficha' => $ficha_Id_ficha,
-            'Id_Rol' => $Id_Rol
+            'Contraseña' => $Contraseña
             
         ]); 
     }
@@ -82,8 +78,6 @@ class UsuarioController extends Controller
         $Telefono = null;
         $Fecha_de_Nacimiento = null;
         $Contraseña = null;
-        $ficha_Id_ficha = null;
-        $Id_Rol = null;
         return view('usuario.edit', 
         [
             'usuario' => $usuario,
@@ -94,9 +88,7 @@ class UsuarioController extends Controller
             'Genero' => $Genero,
             'Telefono' => $Telefono,
             'Fecha_de_Nacimiento' => $Fecha_de_Nacimiento,
-            'Contraseña' => $Contraseña,
-            'ficha_Id_ficha' => $ficha_Id_ficha,
-            'Id_Rol' => $Id_Rol
+            'Contraseña' => $Contraseña
             
         ]);
     }

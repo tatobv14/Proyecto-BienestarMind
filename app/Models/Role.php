@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * Class Role
  * 
  * @property int $Id_Rol
- * @property string|null $Descripcion
- * @property Carbon|null $Created_AT
- * @property Carbon|null $Update_AT
+ * @property string $Descripcion
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
  * @property Collection|Permiso[] $permisos
  * @property Collection|Usuario[] $usuarios
@@ -30,24 +30,25 @@ class Role extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'Created_AT' => 'datetime',
-		'Update_AT' => 'datetime'
+		'created_AT' => 'datetime',
+		'update_AT' => 'datetime'
 	];
 
 	protected $fillable = [
 		'Descripcion',
-		'Created_AT',
-		'Update_AT'
+		'created_AT',
+		'update_AT'
 	];
 
 	public function permisos()
 	{
 		return $this->belongsToMany(Permiso::class, 'roles_permisos', 'Id_Rol', 'Id_Permiso')
-					->withPivot('Id_roles_permisos');
+					->withPivot('Id_roles_permisos', 'created_AT', 'update_AT');
 	}
 
 	public function usuarios()
 	{
-		return $this->hasMany(Usuario::class, 'Id_Rol');
+		return $this->belongsToMany(Usuario::class, 'usuario_roles', 'Id_Rol', 'Id_Usuario')
+					->withPivot('Id_usuario_roles', 'created_AT', 'update_AT');
 	}
 }

@@ -1,12 +1,12 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
+                        <x-application-mark class="block h-4 w-auto" />
                     </a>
                 </div>
 
@@ -17,79 +17,50 @@
                     </x-nav-link>
                 </div>
 
-            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('usuario.index') }}" :active="request()->routeIs('usuario.*')">
-                        {{ __('Usuarios') }}
-                    </x-nav-link>
+            
+
+               <div x-data="{ open: false }" class="hidden sm:-my-px sm:ms-10 sm:flex relative">
+                    <button @click="open = !open"
+                        class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 focus:outline-none transition"
+                        :class="{ 'border-indigo-500 text-gray-900': open, 'border-transparent': !open }">
+                        {{ __('Data Tables') }}
+                        <svg class="ml-1 h-4 w-4 transform transition-transform duration-200"
+                            :class="{ 'rotate-180': open }"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8l5 5 5-5" />
+                        </svg>
+                    </button>
+
+                    <div x-show="open" @click.away="open = false"
+                        x-transition
+                        class="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+                        <div class="flex flex-col py-1">
+                            @foreach([
+                                ['asesorium.index', 'Asesorias'],
+                                ['categoriaelemento.index', 'Categoria Elementos'],
+                                ['elemento.index', 'Elementos'],
+                                ['espacio.index', 'Espacios'],
+                                ['ficha.index', 'Fichas'],
+                                ['permiso.index', 'Permisos'],                
+                                ['reservaelemento.index', 'Reserva Elementos'],
+                                ['reservaespacio.index', 'Reserva Espacios'],
+                                ['role.index', 'Roles'],
+                                ['rolespermiso.index', 'Roles Permisos'],
+                                ['sede.index', 'Sedes'],
+                                ['usuario.index', 'Usuarios'],
+                                ['usuarioficha.index', 'Usuario Ficha'],
+                                ['usuariorole.index', 'Usuario Rol'],
+                            ] as [$route, $label])
+                                <x-nav-link href="{{ route($route) }}" :active="request()->routeIs(Str::before($route, '.') . '.*')"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    {{ __($label) }}
+                                </x-nav-link>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
-
-             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('asesorium.index') }}" :active="request()->routeIs('asesorium.*')">
-                        {{ __('Asesorias') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('elemento.index') }}" :active="request()->routeIs('elemento.*')">
-                        {{ __('Elementos') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('categoriaelemento.index') }}" :active="request()->routeIs('categoriaelemento.*')">
-                        {{ __('Categoria Elementos') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('espacio.index') }}" :active="request()->routeIs('espacio.*')">
-                        {{ __('Espacios') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('ficha.index') }}" :active="request()->routeIs('ficha.*')">
-                        {{ __('Fichas') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('permiso.index') }}" :active="request()->routeIs('permiso.*')">
-                        {{ __('Permisos') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('reservaelemento.index') }}" :active="request()->routeIs('reservaelemento.*')">
-                        {{ __('Reserva Elementos') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('reservaespacio.index') }}" :active="request()->routeIs('reservaespacio.*')">
-                        {{ __('Reserva Espacios') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('role.index') }}" :active="request()->routeIs('role.*')">
-                        {{ __('Roles') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('rolespermiso.index') }}" :active="request()->routeIs('rolespermiso.*')">
-                        {{ __('Roles Permisos') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('sede.index') }}" :active="request()->routeIs('sede.*')">
-                        {{ __('Sedes') }}
-                    </x-nav-link>
-                </div>
-
+            
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -167,11 +138,11 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Administrar cuenta') }}
                             </div>
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Perfil') }}
                             </x-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -188,7 +159,7 @@
 
                                 <x-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Desconectarse') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>

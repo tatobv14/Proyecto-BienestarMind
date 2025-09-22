@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Espacio;
 use App\Http\Controllers\Controller;
 use App\Models\Espacio;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreEspacioRequest;
+use App\Http\Requests\UpdateEspacioRequest;
 class EspacioController extends Controller
 {
     /**
@@ -28,7 +29,7 @@ class EspacioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreEspacioRequest $request)
     {
         //
     }
@@ -52,7 +53,7 @@ class EspacioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Espacio $espacio)
+    public function update(UpdateEspacioRequest $request, Espacio $espacio)
     {
         //
     }

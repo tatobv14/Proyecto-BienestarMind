@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $attempts
  * @property int|null $reserved_at
  * @property int $available_at
- * @property int $created_at
+ * @property Carbon $created_at
  *
  * @package App\Models
  */

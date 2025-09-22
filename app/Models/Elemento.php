@@ -14,13 +14,13 @@ use Illuminate\Database\Eloquent\Model;
  * Class Elemento
  * 
  * @property int $Id_Elemento
- * @property int|null $Id_Categoria
- * @property string|null $Nombre_Elemento
- * @property int|null $Estado_Elemento
- * @property Carbon|null $Created_AT
- * @property Carbon|null $Update_AT
+ * @property int $Id_Categoria
+ * @property string $Nombre_Elemento
+ * @property string $Estado_Elemento
+ * @property Carbon $created_AT
+ * @property Carbon $update_AT
  * 
- * @property CategoriaElemento|null $categoria_elemento
+ * @property CategoriaElemento $categoria_elemento
  * @property Collection|Reservaelemento[] $reservaelementos
  *
  * @package App\Models
@@ -33,17 +33,16 @@ class Elemento extends Model
 
 	protected $casts = [
 		'Id_Categoria' => 'int',
-		'Estado_Elemento' => 'int',
-		'Created_AT' => 'datetime',
-		'Update_AT' => 'datetime'
+		'created_AT' => 'datetime',
+		'update_AT' => 'datetime'
 	];
 
 	protected $fillable = [
 		'Id_Categoria',
 		'Nombre_Elemento',
 		'Estado_Elemento',
-		'Created_AT',
-		'Update_AT'
+		'created_AT',
+		'update_AT'
 	];
 
 	public function categoria_elemento()
