@@ -10,14 +10,14 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 
                 <div class="flex justify-end p-4">
-                    <a href="{{ route('programa.create') }}"
+                    <a href="{{ route('programas.create') }}"
                        class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3">
                         Nuevo
                     </a>
                 </div>
 
                 <div class="p-4">
-                    <table id="programa" class="display w-full">
+                    <table id="programas" class="display w-full">
                         <thead>
                             <tr>
                                 <th>Identificador del Programa</th>
@@ -38,11 +38,11 @@
                                     <td>{{ $prog->update_AT }}</td>
                                     <td>
                                         <div class="flex gap-3 justify-center items-center">
-                                            <a href="{{ route('programa.edit', $prog->Id_Programa) }}"
+                                            <a href="{{ route('programas.edit', $prog->Id_Programa) }}"
                                                class="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition">
                                                 Editar
                                             </a>
-                                            <form action="{{ route('programa.destroy', $prog->Id_Programa) }}"
+                                            <form action="{{ route('programas.destroy', $prog->Id_Programa) }}"
                                                   method="POST"
                                                   onsubmit="return confirm('¿Eliminar este programa?');"
                                                   class="inline m-0 p-0">
@@ -65,7 +65,7 @@
         </div>
     </div>
 
-    {{-- Incluimos DataTables por CDN para no depender de Vite --}}
+    {{-- DataTables por CDN --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -78,7 +78,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <script>
         $(function () {
-            $('#programa').DataTable({
+            $('#programas').DataTable({
                 pageLength: 20,
                 dom: 'Bfrtip',
                 language: {
