@@ -50,6 +50,7 @@
                                 ['usuario.index', 'Usuarios'],
                                 ['usuarioficha.index', 'Usuario Ficha'],
                                 ['usuariorole.index', 'Usuario Rol'],
+                                ['programas.index', 'Programa'],
                             ] as [$route, $label])
                                 <x-nav-link href="{{ route($route) }}" :active="request()->routeIs(Str::before($route, '.') . '.*')"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">

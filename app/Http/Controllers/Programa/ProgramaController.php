@@ -13,7 +13,8 @@ class ProgramaController
      */
     public function index()
     {
-        //
+        $programa = Programa::all();
+        return view('programas.index',compact('programa'));
     }
 
     /**

@@ -80,6 +80,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
     ->resource('usuariorole', UsuarioRoleController::class)
     ->names('usuariorole');
+
     Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
     ->resource('programas', ProgramaController::class)
     ->names('programas');

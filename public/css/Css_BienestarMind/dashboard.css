@@ -2,7 +2,7 @@
 
 /* Variables de color */
 :root {
-    --primary-green: #28a745; /* Verde fuerte como en Login.css */
+    --primary-green: #28a755; /* Verde fuerte como en Login.css */
     --light-green: #e0ffe0; /* Verde claro para fondos */
     --dark-grey: #333;
     --medium-grey: #555;
@@ -273,7 +273,7 @@ body {
 
 /* Data Tables */
 .data-tables .table-card {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 2px 5px var(--shadow-color);
