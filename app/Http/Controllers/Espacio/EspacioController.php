@@ -23,7 +23,18 @@ class EspacioController extends Controller
      */
     public function create()
     {
-        //
+        $Id_Espacio = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Id_Sede = null;
+        $Nombre_del_espacio = null;
+        $espacio = new Espacio();
+        return view('espacio.create',
+        [
+            'espacio' => $espacio,
+            'Id_Espacio' => $Id_Espacio,
+            'Id_Sede' => $Id_Sede,
+            'Nombre_del_espacio' => $Nombre_del_espacio,
+            
+        ]);
     }
 
     /**
@@ -31,7 +42,8 @@ class EspacioController extends Controller
      */
     public function store(StoreEspacioRequest $request)
     {
-        //
+        Espacio::create($request->validated());        
+        return redirect()->route('espacio.index')->with('ok','Espacio creado');
     }
 
     /**
@@ -47,7 +59,18 @@ class EspacioController extends Controller
      */
     public function edit(Espacio $espacio)
     {
-        //
+        $Id_Espacio = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Id_Sede = null;
+        $Nombre_del_espacio = null;
+        $espacio = new Espacio();
+        return view('espacio.create',
+        [
+            'espacio' => $espacio,
+            'Id_Espacio' => $Id_Espacio,
+            'Id_Sede' => $Id_Sede,
+            'Nombre_del_espacio' => $Nombre_del_espacio,
+            
+        ]);
     }
 
     /**
@@ -55,7 +78,8 @@ class EspacioController extends Controller
      */
     public function update(UpdateEspacioRequest $request, Espacio $espacio)
     {
-        //
+        $espacio->update($request->validated());
+        return redirect()->route('espacio.index')->with('ok','Espacio actualizado');
     }
 
     /**
@@ -63,6 +87,12 @@ class EspacioController extends Controller
      */
     public function destroy(Espacio $espacio)
     {
-        //
+        try {
+                $espacio->delete(); 
+                return back()->with('ok', 'Espacio eliminado');
+            } catch (\Throwable $e) {
+                // Suele fallar si hay FKs (p.ej. dependientes) sin cascade
+                return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+            }
     }
 }
