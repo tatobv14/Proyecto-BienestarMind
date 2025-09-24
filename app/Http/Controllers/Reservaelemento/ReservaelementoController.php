@@ -23,7 +23,21 @@ class ReservaelementoController
      */
     public function create()
     {
-        //
+        $Fecha_Reserva = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Id_Usuario = null;
+        $Id_Elemento = null;
+        $Descripcion_Reserva = null;
+        $Id_ficha = null;
+        $reservaelemento = new Reservaelemento();
+        return view('usuario.create',
+        [
+            'reservaelemento' => $reservaelemento,
+            'Id_Usuario' => $Id_Usuario,
+            'Id_Elemento' => $Id_Elemento,
+            'Descripcion_Reserva' => $Descripcion_Reserva,
+            'Id_ficha' => $Id_ficha,
+            
+        ]); 
     }
 
     /**
@@ -31,7 +45,8 @@ class ReservaelementoController
      */
     public function store(StoreReservaelementoRequest $request)
     {
-        //
+        Reservaelemento::create($request->validated());        
+        return redirect()->route('reservaelemento.index')->with('ok','Reserva de elemento creada');
     }
 
     /**
@@ -47,7 +62,21 @@ class ReservaelementoController
      */
     public function edit(Reservaelemento $reservaelemento)
     {
-        //
+        $Fecha_Reserva = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Id_Usuario = null;
+        $Id_Elemento = null;
+        $Descripcion_Reserva = null;
+        $Id_ficha = null;
+        $reservaelemento = new Reservaelemento();
+        return view('reservaelemento.create',
+        [
+            'reservaelemento' => $reservaelemento,
+            'Id_Usuario' => $Id_Usuario,
+            'Id_Elemento' => $Id_Elemento,
+            'Descripcion_Reserva' => $Descripcion_Reserva,
+            'Id_ficha' => $Id_ficha,
+            
+        ]);
     }
 
     /**
@@ -55,7 +84,8 @@ class ReservaelementoController
      */
     public function update(UpdateReservaelementoRequest $request, Reservaelemento $reservaelemento)
     {
-        //
+          $reservaelemento->update($request->validated());
+        return redirect()->route('reservaelemento.index')->with('ok','Reserva de elemento actualizada');
     }
 
     /**
@@ -63,6 +93,12 @@ class ReservaelementoController
      */
     public function destroy(Reservaelemento $reservaelemento)
     {
-        //
+        try {
+                $reservaelemento->delete(); 
+                return back()->with('ok', 'reserva elemento eliminada');
+            } catch (\Throwable $e) {
+                // Suele fallar si hay FKs (p.ej. dependientes) sin cascade
+                return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+            }
     }
 }
