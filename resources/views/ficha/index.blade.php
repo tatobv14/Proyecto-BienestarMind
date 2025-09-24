@@ -1,12 +1,20 @@
 <x-app-layout>
-<x-slot name="header">
+<x-slot name="header">  
 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 {{ __('Fichas') }}
 </h2>
 </x-slot>
 
+
+
 <div class="py-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
+           @if (session('ok'))
+    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
+        <p class="font-bold">¡Éxito!</p>
+        <p>{{ session('ok') }}</p>
+    </div>
+@endif
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="flex justify-end p-2 mr-4">
 <a href="{{ route('ficha.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
