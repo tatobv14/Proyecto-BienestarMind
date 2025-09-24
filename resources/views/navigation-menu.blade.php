@@ -15,9 +15,7 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
-
-            
+                </div>         
 
                <div x-data="{ open: false }" class="hidden sm:-my-px sm:ms-10 sm:flex relative">
                     <button @click="open = !open"
