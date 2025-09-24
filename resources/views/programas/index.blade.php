@@ -29,10 +29,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($programa as $prog)
+                            @foreach($programas as $prog)
                                 <tr>
                                     <td>{{ $prog->Id_Programa }}</td>
-                                    <td>{{ $prog->Nombre_Programa }}</td>
+                                    <td>{{ $prog->Nombre_programa }}</td>
                                     <td>{{ $prog->Descripcion }}</td>
                                     <td>{{ $prog->created_AT }}</td>
                                     <td>{{ $prog->update_AT }}</td>
