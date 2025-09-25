@@ -23,7 +23,16 @@ class RolesPermisoController
      */
     public function create()
     {
-        //
+        $Id_Rol = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Id_Permiso = null;
+        $rolespermiso = new RolesPermiso();
+        return view('rolespermiso.create',
+        [
+            
+            'Id_Rol' => $Id_Rol,
+            'Id_Permiso' => $Id_Permiso,
+            
+        ]); 
     }
 
     /**
@@ -31,7 +40,8 @@ class RolesPermisoController
      */
     public function store(StoreRolesPermisoRequest $request)
     {
-        //
+         RolesPermiso::create($request->validated());        
+        return redirect()->route('rolespermiso.index')->with('ok','roles permiso creado');
     }
 
     /**
@@ -47,7 +57,16 @@ class RolesPermisoController
      */
     public function edit(RolesPermiso $rolesPermiso)
     {
-        //
+        $Id_Rol = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Id_Permiso = null;
+        $rolespermiso = new RolesPermiso();
+        return view('rolespermiso.create',
+        [
+            'roles_permisos' => $roles_permisos,
+            'Id_Rol' => $Id_Rol,
+            'Id_Permiso' => $Id_Permiso,
+            
+        ]); 
     }
 
     /**
@@ -55,7 +74,8 @@ class RolesPermisoController
      */
     public function update(UpdateRolesPermisoRequest $request, RolesPermiso $rolesPermiso)
     {
-        //
+        $rolespermiso->update($request->validated());
+        return redirect()->route('rolespermiso.index')->with('ok','roles permiso actualizado');
     }
 
     /**
@@ -63,6 +83,12 @@ class RolesPermisoController
      */
     public function destroy(RolesPermiso $rolesPermiso)
     {
-        //
+         try {
+                $rolespermiso->delete(); 
+                return back()->with('ok', 'roles permiso eliminado');
+            } catch (\Throwable $e) {
+                // Suele fallar si hay FKs (p.ej. dependientes) sin cascade
+                return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+            }
     }
 }

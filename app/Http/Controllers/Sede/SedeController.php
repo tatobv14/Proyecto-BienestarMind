@@ -23,7 +23,18 @@ class SedeController
      */
     public function create()
     {
-        //
+        $Nombre_sede = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Telefono_sede = null;
+        $Direccion_sede = null;
+        $sede = new Sede();
+        return view('sede.create',
+        [
+            'sede' => $sede,
+            'Nombre_sede' => $Nombre_sede,
+            'Telefono_sede' => $Telefono_sede,
+            'Direccion_sede' => $Direccion_sede,
+            
+        ]); 
     }
 
     /**
@@ -31,7 +42,8 @@ class SedeController
      */
     public function store(StoreSedeRequest $request)
     {
-        //
+         Sede::create($request->validated());        
+        return redirect()->route('sede.index')->with('ok','sede creado');
     }
 
     /**
@@ -47,7 +59,18 @@ class SedeController
      */
     public function edit(Sede $sede)
     {
-        //
+        $Nombre_sede = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Telefono_sede = null;
+        $Direccion_sede = null;
+        $sede = new Sede();
+        return view('sede.create',
+        [
+            'sede' => $sede,
+            'Nombre_sede' => $Nombre_sede,
+            'Telefono_sede' => $Telefono_sede,
+            'Direccion_sede' => $Direccion_sede,
+            
+        ]);
     }
 
     /**
@@ -55,7 +78,8 @@ class SedeController
      */
     public function update(UpdateSedeRequest $request, Sede $sede)
     {
-        //
+        $sede->update($request->validated());
+        return redirect()->route('sede.index')->with('ok','sede actualizado');
     }
 
     /**
@@ -63,6 +87,12 @@ class SedeController
      */
     public function destroy(Sede $sede)
     {
-        //
+        try {
+                $sede->delete(); 
+                return back()->with('ok', 'sede eliminado');
+            } catch (\Throwable $e) {
+                // Suele fallar si hay FKs (p.ej. dependientes) sin cascade
+                return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+            }
     }
 }

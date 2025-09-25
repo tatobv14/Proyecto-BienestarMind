@@ -23,7 +23,23 @@ class ReservaespacioController
      */
     public function create()
     {
-        //
+        $Fecha_Reserva = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Id_Usuario = null;
+        $Id_Espacio = null;
+        $Duracion = null;
+        $Motivo_Reserva = null;
+        $Id_ficha = null;
+        $reservaespacio = new Reservaespacio();
+        return view('reservaespacio.create',
+        [
+            'reservaespacio' => $reservaespacio,
+            'Fecha_Reserva' => $Fecha_Reserva,
+            'Id_Usuario' => $Id_Usuario,
+            'Id_Espacio' => $Id_Espacio,
+            'Duracion' => $Duracion,
+            'Motivo_Reserva' => $Motivo_Reserva,
+            'Id_ficha' => $Id_ficha,
+        ]);
     }
 
     /**
@@ -31,7 +47,8 @@ class ReservaespacioController
      */
     public function store(StoreReservaespacioRequest $request)
     {
-        //
+        Reservaespacio::create($request->validated());        
+        return redirect()->route('reservaespacio.index')->with('ok','reserva de espacio creado');
     }
 
     /**
@@ -47,7 +64,23 @@ class ReservaespacioController
      */
     public function edit(Reservaespacio $reservaespacio)
     {
-        //
+        $Fecha_Reserva = null; // Asignar un valor predeterminado o el valor que corresponda
+        $Id_Usuario = null;
+        $Id_Espacio = null;
+        $Duracion = null;
+        $Motivo_Reserva = null;
+        $Id_ficha = null;
+        $reservaespacio = new Reservaespacio();
+        return view('reservaespacio.create',
+        [
+            'reservaespacio' => $reservaespacio,
+            'Fecha_Reserva' => $Fecha_Reserva,
+            'Id_Usuario' => $Id_Usuario,
+            'Id_Espacio' => $Id_Espacio,
+            'Duracion' => $Duracion,
+            'Motivo_Reserva' => $Motivo_Reserva,
+            'Id_ficha' => $Id_ficha,
+        ]);
     }
 
     /**
@@ -55,7 +88,8 @@ class ReservaespacioController
      */
     public function update(UpdateReservaespacioRequest $request, Reservaespacio $reservaespacio)
     {
-        //
+        $reservaespacio->update($request->validated());
+        return redirect()->route('reservaespacio.index')->with('ok','reserva de espacio actualizado');
     }
 
     /**
@@ -63,6 +97,12 @@ class ReservaespacioController
      */
     public function destroy(Reservaespacio $reservaespacio)
     {
-        //
+         try {
+                $reservaespacio->delete(); 
+                return back()->with('ok', 'reserva espacio eliminado');
+            } catch (\Throwable $e) {
+                // Suele fallar si hay FKs (p.ej. dependientes) sin cascade
+                return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+            }
     }
 }
