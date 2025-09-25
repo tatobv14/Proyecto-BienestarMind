@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateFichaRequest extends FormRequest
 {
@@ -18,6 +19,7 @@ class UpdateFichaRequest extends FormRequest
      */
     public function rules(): array
     {
+        $Id_ficha = $this->route('ficha')->Id_ficha ?? null;
         return [
             'Id_ficha' => 'required|string|max:20|unique:ficha,Id_ficha,' . $this->route('ficha')->Id_ficha . ',Id_ficha',
             'descripcion' => 'required|string|max:255',
