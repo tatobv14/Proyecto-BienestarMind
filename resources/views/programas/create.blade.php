@@ -15,7 +15,7 @@
                                 @csrf
 
                                 @include('programas._form', [
-                                    'programas' => null
+                                    'programas' => $programa
                                 ])
 
                                 <div class="pt-4 flex gap-3">

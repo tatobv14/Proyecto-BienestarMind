@@ -42,6 +42,7 @@ class Ficha extends Model
 	];
 
 	protected $fillable = [
+		'Id_ficha',
 		'descripcion',
 		'jornada_ficha',
 		'Id_Programa',

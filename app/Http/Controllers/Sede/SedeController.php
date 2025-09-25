@@ -9,60 +9,57 @@ use App\Http\Requests\StoreSedeRequest;
 use App\Http\Requests\UpdateSedeRequest;
 class SedeController
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-         $sede = Sede::all();
-        return view('sede.index',compact('sede'));
+        $sede = Sede::all();
+        return view('sede.index', compact('sede'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view(
+            'sede.create',
+            [
+                'sede' => new Sede()
+            ]
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreSedeRequest $request)
     {
-        //
+        Sede::create($request->validated());
+        return redirect()->route('sede.index')->with('ok', 'Sede creada');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Sede $sede)
     {
-        //
+        return view('sede.show', compact('sede'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Sede $sede)
     {
-        //
+        return view(
+            'sede.edit',
+            [
+                'sede' => $sede
+            ]
+        );
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateSedeRequest $request, Sede $sede)
     {
-        //
+        $sede->update($request->validated());
+        return redirect()->route('sede.index')->with('ok', 'Sede actualizada');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Sede $sede)
     {
-        //
+        try {
+            $sede->delete();
+            return back()->with('ok', 'Sede eliminada');
+        } catch (\Throwable $e) {
+            return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+        }
     }
 }

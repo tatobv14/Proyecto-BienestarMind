@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Crear Asesoria') }}
+            {{ __('Editar Asesoria') }}
         </h2>
     </x-slot>
 
@@ -15,15 +15,9 @@
                                 @csrf
                                 @method('PUT')
 
-                                @include('asesorium._form', [
-                                    'usuario' => null,
-                                    'Motivo_asesoria' => $motivo_asesoria,
-                                    'Fecha' => $fecha,
-                                    'Id_Usuario_Recibe' => $Id_usuario_recibe,
-                                    'Id_Usuario_Asesor' => $Id_usuario_asesor,
-                                    'Ficha_Id_Ficha' => $Id_ficha_Id_ficha,
-                                    'create_AT' => $create_AT,
-                                    'update_AT' => $update_AT,
+                                @include('asesorium._form', [   
+                                    'asesorium' => $asesorium,                                   
+                                    'usuario' => $usuario
                                 ])
 
                                 <div class="pt-4 flex gap-3">

@@ -19,6 +19,8 @@
                         <th>Fecha de Reserva</th>
                         <th>Identificador del Usuario</th>
                         <th>Identificador del Espacio</th>
+                        <th>Identificador de la ficha</th>
+                        <th>Motivo</th>
                         <th>Duración</th>
                         <th>Creado</th>
                         <th>Última modificación</th>
@@ -30,8 +32,10 @@
                         <tr>
                             <td>{{ $resesp->Id_ReservaEspacio }}</td>
                             <td>{{ $resesp->Fecha_Reserva }}</td>
-                            <td>{{ $resesp->Id_Usuario }}</td>
-                            <td>{{ $resesp->Id_Espacio }}</td>
+                            <td>{{ $resesp->Id_Usuario }} {{ optional($resesp->usuario)->Nombres }} {{ optional($resesp->usuario)->Apellidos }}</td>
+                            <td>{{ $resesp->Id_Espacio }} {{ optional($resesp->elemento)->Nombre_del_espacio }} </td>                            
+                            <td>{{ $resesp->Id_ficha }} {{ optional($resesp->ficha)->descripcion }} </td>                            
+                            <td>{{ $resesp->Motivo_Reserva }}</td>
                             <td>{{ $resesp->Duracion }}</td>
                             <td>{{ $resesp->created_AT }}</td>
                             <td>{{ $resesp->update_AT }}</td>

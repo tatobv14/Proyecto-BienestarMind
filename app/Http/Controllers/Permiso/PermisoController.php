@@ -9,60 +9,57 @@ use App\Http\Requests\StorePermisoRequest;
 use App\Http\Requests\UpdatePermisoRequest;
 class PermisoController
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $permiso = Permiso::all();
-        return view('permiso.index',compact('permiso'));
+        return view('permiso.index', compact('permiso'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view(
+            'permiso.create',
+            [
+                'permiso' => new Permiso()
+            ]
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StorePermisoRequest $request)
     {
-        //
+        Permiso::create($request->validated());
+        return redirect()->route('permiso.index')->with('ok', 'Permiso creado');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Permiso $permiso)
     {
-        //
+        return view('permiso.show', compact('permiso'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Permiso $permiso)
     {
-        //
+        return view(
+            'permiso.edit',
+            [
+                'permiso' => $permiso
+            ]
+        );
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdatePermisoRequest $request, Permiso $permiso)
     {
-        //
+        $permiso->update($request->validated());
+        return redirect()->route('permiso.index')->with('ok', 'Permiso actualizado');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Permiso $permiso)
     {
-        //
+        try {
+            $permiso->delete();
+            return back()->with('ok', 'Permiso eliminado');
+        } catch (\Throwable $e) {
+            return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+        }
     }
 }

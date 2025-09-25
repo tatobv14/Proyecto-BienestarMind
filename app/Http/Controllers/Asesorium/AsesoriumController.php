@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Asesorium;
 
 use App\Http\Controllers\Controller;
 use App\Models\Asesorium;
+use App\Models\Usuario;
+use App\Models\Ficha;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAsesoriumRequest;
 use App\Http\Requests\UpdateAsesoriumRequest;
@@ -18,9 +20,13 @@ class AsesoriumController extends Controller
 
     public function create()
     {
+        $usuarios = Usuario::all();
+        $ficha = Ficha::all();
         return view('asesorium.create', [
-    'asesorium' => new Asesorium() // o el modelo existente en edit()
-]);
+            'asesorium' => new Asesorium(),
+            'usuario' => $usuarios,
+            'ficha' => $ficha
+        ]);
     }
 
     public function store(StoreAsesoriumRequest $request)
@@ -36,9 +42,13 @@ class AsesoriumController extends Controller
 
     public function edit(Asesorium $asesorium)
     {
-      return view('asesorium.create', [
-    'asesorium' => new Asesorium() // o el modelo existente en edit()
-]);
+        $usuarios = Usuario::all();
+        $ficha = Ficha::all();
+        return view('asesorium.edit', [
+            'asesorium' => $asesorium,
+            'usuario' => $usuarios,
+            'ficha' => $ficha
+        ]);
     }
 
     public function update(UpdateAsesoriumRequest $request, Asesorium $asesorium)

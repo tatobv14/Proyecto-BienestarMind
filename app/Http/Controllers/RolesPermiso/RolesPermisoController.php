@@ -4,65 +4,72 @@ namespace App\Http\Controllers\RolesPermiso;
 
 use App\Http\Controllers\Controller;
 use App\Models\RolesPermiso;
+use App\Models\Permiso;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRolesPermisoRequest;
 use App\Http\Requests\UpdateRolesPermisoRequest;
 class RolesPermisoController
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $rolespermiso = RolesPermiso::all();
-        return view('rolespermiso.index',compact('rolespermiso'));
+        return view('rolespermiso.index', compact('rolespermiso'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $permiso = Permiso::all();
+        $role = Role::all();
+        return view(
+            'rolespermiso.create',
+            [
+                'rolespermiso' => new RolesPermiso(),
+                'permiso' => $permiso,
+                'role' => $role
+            ]
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreRolesPermisoRequest $request)
     {
-        //
+        RolesPermiso::create($request->validated());
+        return redirect()->route('rolespermiso.index')->with('ok', 'Rol permiso creado');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(RolesPermiso $rolesPermiso)
+    public function show(RolesPermiso $rolespermiso)
     {
-        //
+        return view('rolespermiso.show', compact('rolespermiso'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(RolesPermiso $rolesPermiso)
+    public function edit(RolesPermiso $rolespermiso)
     {
-        //
+        $permiso = Permiso::all();
+        $role = Role::all();
+        return view(
+            'rolespermiso.edit',
+            [
+                'rolespermiso' => $rolespermiso,
+                'permiso' => $permiso,
+                'role' => $role
+            ]
+        );
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateRolesPermisoRequest $request, RolesPermiso $rolesPermiso)
+    public function update(UpdateRolesPermisoRequest $request, RolesPermiso $rolespermiso)
     {
-        //
+        $rolespermiso->update($request->validated());
+        return redirect()->route('rolespermiso.index')->with('ok', 'Rol permiso actualizado');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(RolesPermiso $rolesPermiso)
+    public function destroy(RolesPermiso $rolespermiso)
     {
-        //
+        try {
+            $rolespermiso->delete();
+            return back()->with('ok', 'Rol permiso eliminado');
+        } catch (\Throwable $e) {
+            return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+        }
     }
 }

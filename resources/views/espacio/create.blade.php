@@ -13,10 +13,8 @@
                         <div class="bg-white p-6 shadow sm:rounded-lg">
                             <form action="{{ route('espacio.store') }}" method="POST" class="space-y-6">
                                 @csrf
-                                @include('espacio._form', [
-                                    'espacio' => null,
-                                    'Id_Espacio' => $Id_Espacio,
-                                    'Id_Sede' => $Id_Sede,
+                                @include('espacio._form', [                                    
+                                    'espacio' => $espacio
                                 ])
 
                                 <div class="pt-4 flex gap-3">                                    

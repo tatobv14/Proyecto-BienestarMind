@@ -15,11 +15,8 @@
                                 @csrf
                                 @method('PUT')
 
-                                @include('espacio._form', [
-                                    'espacio' => $espacio,
-                                    'Id_Espacio' => $Id_Espacio,
-                                    'Id_Sede' => $Id_Sede,
-                                    'Nombre_del_espacio' => $Nombre_del_espacio,
+                                @include('espacio._form', [                                    
+                                    'espacio' => $espacio
                                 ])
 
                                 <div class="pt-4 flex gap-3">

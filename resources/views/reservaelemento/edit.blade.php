@@ -17,11 +17,9 @@
 
                                 @include('reservaelemento._form', [
                                     'reservaelemento' => $reservaelemento,
-                                    'Fecha_Reserva' => $Fecha_Reserva,
-                                    'Id_Usuario' => $Id_Usuario,
-                                    'Id_Elemento' => $Id_Elemento,
-                                    'Id_ficha' => $Id_ficha,
-                                    'Descripcion_Reserva' => $Descripcion_Reserva,
+                                    'ficha' => $ficha,
+                                    'usuario' => $usuario,
+                                    'elemento' => $elemento
                                 ])
 
                                 <div class="pt-4 flex gap-3">

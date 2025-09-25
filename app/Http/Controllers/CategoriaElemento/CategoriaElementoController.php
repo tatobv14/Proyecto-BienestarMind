@@ -10,60 +10,50 @@ use App\Http\Requests\UpdateCategoriaElementoRequest;
 
 class CategoriaElementoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $categoriaelementos = CategoriaElemento::all();
-        return view("categoriaelementos.index", compact("categoriaelementos"));
+        return view("categoriaelemento.index", compact("categoriaelementos"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('categoriaelemento.create', [
+            'categoriaelemento' => new CategoriaElemento()
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreCategoriaElementoRequest $request)
     {
-        //
+        CategoriaElemento::create($request->validated());
+        return redirect()->route('categoriaelemento.index')->with('ok', 'Categoria de Elemento creada');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(CategoriaElemento $categoriaElemento)
+    public function show(CategoriaElemento $categoriaelemento)
     {
-        //
+        return view('categoriaelemento.show', compact('categoriaelemento'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CategoriaElemento $categoriaElemento)
+    public function edit(CategoriaElemento $categoriaelemento)
     {
-        //
+        return view('categoriaelemento.edit', [
+            'categoriaelemento' => $categoriaelemento
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateCategoriaElementoRequest $request, CategoriaElemento $categoriaElemento)
+    public function update(UpdateCategoriaElementoRequest $request, CategoriaElemento $categoriaelemento)
     {
-        //
+        $categoriaelemento->update($request->validated());
+        return redirect()->route('categoriaelemento.index')->with('ok', 'Categora del elemento actualizada');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(CategoriaElemento $categoriaElemento)
+    public function destroy(CategoriaElemento $categoriaelemento)
     {
-        //
+        try {
+            $categoriaelemento->delete();
+            return back()->with('ok', 'Categoría eliminada');
+        } catch (\Throwable $e) {
+            return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+        }
     }
 }

@@ -16,15 +16,7 @@
                                 @method('PUT')
 
                                 @include('usuario._form', [
-                                    'usuario' => $usuario,
-                                    'Nombres' => $Nombres,
-                                    'Apellidos' => $Apellidos,
-                                    'Documento' => $Documento,
-                                    'Correo' => $Correo,
-                                    'Genero' => $Genero,
-                                    'Telefono' => $Telefono,
-                                    'Fecha_de_Nacimiento' => $Fecha_de_Nacimiento,
-                                    'Contraseña' => $Contraseña
+                                    'usuario' => $usuario
                                 ])
 
                                 <div class="pt-4 flex gap-3">

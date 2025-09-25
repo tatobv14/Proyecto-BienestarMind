@@ -6,12 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StorePermisoRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +19,15 @@ class StorePermisoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'Descripcion' => 'required|string|max:50'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'Descripcion.required' => 'La Descripcion es obligatorio.',
+            'Descripcion.string' => 'La Descripcion debe ser una cadena de texto.',
+            'Descripcion.max' => 'La Descripcion no debe exceder los 50 caracteres.'
         ];
     }
 }

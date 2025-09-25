@@ -14,17 +14,9 @@
                             <form action="{{ route('asesorium.store') }}" method="POST" class="space-y-6">
                                 @csrf
                                 @include('asesorium._form', [
-                                    'asesorium' => $asesorium,
-                                    'usuario' => null,
-                                    'Motivo_asesoria' => $motivo_asesoria ?? '',
-                                    'Fecha' => $fecha ?? '',
-                                    'Id_Usuario_Recibe' => $Id_usuario_recibe ?? '',
-                                    'Id_Usuario_Asesor' => $Id_usuario_asesor ?? '',
-                                    'Ficha_Id_Ficha' => $Id_ficha_Id_ficha ?? '',
-                                    'create_AT' => $create_AT ?? '',
-                                    'update_AT' => $update_AT ?? '',
+                                    'asesorium' => $asesorium,                                   
+                                    'usuario' => $usuario
                                 ])
-
                                 <div class="pt-4 flex gap-3">                                    
                                     <button
                                         class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Guardar</button>

@@ -73,15 +73,4 @@ class Usuario extends Model
 		return $this->hasMany(Reservaespacio::class, 'Id_Usuario');
 	}
 
-	public function fichas()
-	{
-		return $this->belongsToMany(Ficha::class, 'usuario_ficha', 'Id_Usuario', 'Id_ficha')
-					->withPivot('Id_usuario_ficha', 'created_AT', 'update_AT');
-	}
-
-	public function roles()
-	{
-		return $this->belongsToMany(Role::class, 'usuario_roles', 'Id_Usuario', 'Id_Rol')
-					->withPivot('Id_usuario_roles', 'created_AT', 'update_AT');
-	}
 }

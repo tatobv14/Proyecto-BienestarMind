@@ -26,9 +26,9 @@
                 <tbody>
                     @foreach($rolespermiso as $rolper)
                         <tr>
-                            <td>{{ $rolper->Id_roles_permisos }}</td>
-                            <td>{{ $rolper->Id_Rol }}</td>
-                            <td>{{ $rolper->Id_Permiso }}</td>
+                            <td>{{ $rolper->Id_roles_permisos }}</td>                            
+                            <td>{{ $rolper->Id_Rol }} {{ optional($rolper->role)->Descripcion }} </td>                            
+                            <td>{{ $rolper->Id_Permiso }} {{ optional($rolper->permiso)->Descripcion }} </td>                                                        
                             <td>{{ $rolper->created_AT }}</td>
                             <td>{{ $rolper->update_AT }}</td>
                             <td>

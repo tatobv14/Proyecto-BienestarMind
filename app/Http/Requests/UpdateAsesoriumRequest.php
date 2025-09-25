@@ -7,9 +7,6 @@ use Illuminate\Validation\Rule;
 
 class UpdateAsesoriumRequest extends FormRequest
 {
-    /**
-     * Determina si el usuario está autorizado para hacer esta solicitud.
-     */
     public function authorize(): bool
     {
         return true;
@@ -22,44 +19,37 @@ class UpdateAsesoriumRequest extends FormRequest
      */
     public function rules(): array
     {
-        $Id_Asesoria = $this->route('asesorium')->Id_Asesoria ?? null;
-
-        return [
-            'Motivo_asesoria' => [
-                'required',
-                'string',
-                'max:100',
-                Rule::unique('asesorias', 'Motivo_asesoria')->ignore($Id_Asesoria, 'Id_Asesoria'),
-            ],
+        return [            
+            'Motivo_asesoria' => 'required|string|max:255',
             'Fecha' => 'required|date',
-            'Id_Usuario_Recibe' => 'nullable|string|max:10',
-            'Id_Usuario_Asesor' => 'nullable|string|max:15',
-            'ficha_Id_ficha' => [
-                'required',
-                'integer',
-                Rule::exists('fichas', 'Id_ficha'),
-            ],
-            'Estado' => 'required|boolean',
+            'Id_Usuario_Recibe' => 'required|integer|exists:usuario,Id_Usuario',
+            'Id_Usuario_Asesor' => 'required|integer|exists:usuario,Id_Usuario',
+            'ficha_Id_ficha' => 'required|string|exists:ficha,Id_ficha',
         ];
+
     }
 
-    /**
-     * Mensajes personalizados para errores de validación.
-     */
-    public function messages(): array
+    public function messages()
     {
         return [
             'Motivo_asesoria.required' => 'El motivo de la asesoría es obligatorio.',
-            'Motivo_asesoria.max' => 'El motivo no puede superar 100 caracteres.',
-            'Motivo_asesoria.unique' => 'Este motivo ya está registrado para otra asesoría.',
+            'Motivo_asesoria.string' => 'El motivo de la asesoría debe ser una cadena de texto.',
+            'Motivo_asesoria.max' => 'El motivo de la asesoría no debe exceder los 255 caracteres.',
+
             'Fecha.required' => 'La fecha es obligatoria.',
-            'Fecha.date' => 'La fecha debe tener un formato válido.',
-            'Id_Usuario_Recibe.max' => 'El ID del usuario que recibe no puede superar 10 caracteres.',
-            'Id_Usuario_Asesor.max' => 'El ID del asesor no puede superar 15 caracteres.',
-            'ficha_Id_ficha.required' => 'La ficha es obligatoria.',
-            'ficha_Id_ficha.exists' => 'La ficha seleccionada no existe.',
-            'Estado.required' => 'El estado es obligatorio.',
-            'Estado.boolean' => 'El estado debe ser verdadero o falso.',
+            'Fecha.date' => 'La fecha debe ser una fecha válida.',
+
+            'Id_Usuario_Recibe.required' => 'El usuario que recibe asesoria es obligatorio.',
+            'Id_Usuario_Recibe.integer' => 'El usuario que recibe asesoria debe ser un número entero.',
+            'Id_Usuario_Recibe.exists' => 'El usuario que recibe asesoria no existe en la base de datos.',
+
+            'Id_Usuario_Asesor.required' => 'El usuario asesor es obligatorio.',
+            'Id_Usuario_Asesor.integer' => 'El usuario asesor debe ser un número entero.',
+            'Id_Usuario_Asesor.exists' => 'El usuario asesor no existe en la base de datos.',
+
+            'ficha_Id_ficha.required' => 'La ficha es obligatorio.',
+            'ficha_Id_ficha.string' => 'La ficha debe ser una cadena de texto.',
+            'ficha_Id_ficha.exists' => 'La ficha no existe en la base de datos.'
         ];
     }
 }

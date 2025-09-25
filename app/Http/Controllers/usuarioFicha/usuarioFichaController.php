@@ -4,65 +4,72 @@ namespace App\Http\Controllers\usuarioFicha;
 
 use App\Http\Controllers\Controller;
 use App\Models\UsuarioFicha;
+use App\Models\Usuario;
+use App\Models\Ficha;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUsuarioFichaRequest;
 use App\Http\Requests\UpdateUsuarioFichaRequest;
 class usuarioFichaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $usuarioficha = usuarioficha::all();
-        return view('usuarioficha.index',compact('usuarioficha'));
+        return view('usuarioficha.index', compact('usuarioficha'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $usuario = Usuario::all();
+        $ficha = Ficha::all();
+        return view(
+            'usuarioficha.create',
+            [
+                'usuarioficha' => new UsuarioFicha(),
+                'usuario' => $usuario,
+                'ficha' => $ficha
+            ]
+        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreUsuarioFichaRequest $request)
     {
-        //
+        UsuarioFicha::create($request->validated());
+        return redirect()->route('usuarioficha.index')->with('ok', 'Usuario ficha creado');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(UsuarioFicha $usuarioFicha)
+    public function show(UsuarioFicha $usuarioficha)
     {
-        //
+        return view('usuarioficha.show', compact('usuarioficha'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(UsuarioFicha $usuarioFicha)
+    public function edit(UsuarioFicha $usuarioficha)
     {
-        //
+        $usuario = Usuario::all();
+        $ficha = Ficha::all();
+        return view(
+            'usuarioficha.edit',
+            [
+                'usuarioficha' => $usuarioficha,
+                'usuario' => $usuario,
+                'ficha' => $ficha
+            ]
+        );
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateUsuarioFichaRequest $request, UsuarioFicha $usuarioFicha)
+    public function update(UpdateUsuarioFichaRequest $request, UsuarioFicha $usuarioficha)
     {
-        //
+        $usuarioficha->update($request->validated());
+        return redirect()->route('usuarioficha.index')->with('ok', 'Usuario ficha actualizado');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(UsuarioFicha $usuarioFicha)
+    public function destroy(UsuarioFicha $usuarioficha)
     {
-        //
+        try {
+            $usuarioficha->delete();
+            return back()->with('ok', 'Usuario ficha eliminada');
+        } catch (\Throwable $e) {
+            return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
+        }
     }
 }

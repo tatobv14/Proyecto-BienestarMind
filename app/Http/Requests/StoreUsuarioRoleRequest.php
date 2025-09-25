@@ -6,9 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreUsuarioRoleRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
@@ -24,6 +21,19 @@ class StoreUsuarioRoleRequest extends FormRequest
         return [
             'Id_Rol' => 'required|integer|exists:roles,Id_Rol',
             'Id_Usuario' => 'required|integer|exists:usuario,Id_Usuario'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'Id_Rol.required' => 'El rol es obligatorio.',
+            'Id_Rol.integer' => 'El rol debe ser un número entero.',
+            'Id_Rol.exists' => 'El rol no existe en la tabla de roles.',
+
+            'Id_Usuario.required' => 'El usuario es obligatorio.',
+            'Id_Usuario.integer' => 'El usuario debe ser un número entero.',
+            'Id_Usuario.exists' => 'El usuario no existe en la tabla de usuarios.'
         ];
     }
 }

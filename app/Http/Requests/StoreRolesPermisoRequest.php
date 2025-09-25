@@ -6,12 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreRolesPermisoRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +19,14 @@ class StoreRolesPermisoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'Id_Rol' => 'nullable',
+            'Id_Permiso' => 'nullable'
+        ];
+    }
+
+    public function messages()
+    {
+        return [ 
         ];
     }
 }

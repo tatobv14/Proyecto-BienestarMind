@@ -25,9 +25,9 @@
                 <tbody>
                     @foreach($usuarioficha as $usufic)
                         <tr>
-                            <td>{{ $usufic->Id_usuario_ficha }}</td>
-                            <td>{{ $usufic->Id_Usuario }}</td>
-                            <td>{{ $usufic->Id_ficha }}</td>
+                            <td>{{ $usufic->Id_usuario_ficha }}</td>                            
+                            <td>[{{ $usufic->Id_Usuario }}] {{ optional($usufic->usuario)->Nombres }} {{ optional($usufic->usuario)->Apellidos }}</td>                            
+                            <td>{{ $usufic->Id_ficha }} {{ optional($usufic->ficha)->descripcion }}</td>
                             <td>{{ $usufic->created_AT }}</td>
                             <td>{{ $usufic->update_AT }}</td>
                             <td>

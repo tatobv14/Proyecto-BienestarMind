@@ -15,12 +15,11 @@
                                 @csrf
                                 @method('PUT')
 
-                                @include('elemento._form', [
+                               @include('elemento._form', [
                                     'elemento' => $elemento,
-                                    'Id_Categoria' => $Id_Categoria,
-                                    'Nombre_Elemento' => $Nombre_Elemento,
-                                    'Estado_Elemento' => $Estado_Elemento,
+                                    'categoria' => $categoria
                                 ])
+
 
                                 <div class="pt-4 flex gap-3">
                                     <button class="px-4 py-2 bg-blue-600 text-white rounded">Actualizar</button>

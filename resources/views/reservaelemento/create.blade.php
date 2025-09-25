@@ -14,12 +14,10 @@
                             <form action="{{ route('reservaelemento.store') }}" method="POST" class="space-y-6">
                                 @csrf
                                 @include('reservaelemento._form', [
-                                    'reservaelemento' => null,
-                                    'Fecha_Reserva' => $Fecha_Reserva,
-                                    'Id_Usuario' => $Id_Usuario,
-                                    'Id_Elemento' => $Id_Elemento,
-                                    'Id_ficha' => $Id_ficha,
-                                    'Descripcion_Reserva' => $Descripcion_Reserva,
+                                    'reservaelemento' => $reservaelemento,
+                                    'ficha' => $ficha,
+                                    'usuario' => $usuario,
+                                    'elemento' => $elemento
                                 ])
 
                                 <div class="pt-4 flex gap-3">                                    

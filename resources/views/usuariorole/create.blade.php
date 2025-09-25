@@ -15,9 +15,9 @@
                             <form action="{{ route('usuariorole.store') }}" method="POST" class="space-y-6">
                                 @csrf
                                 @include('usuariorole._form', [ 
-                                    'usuario_roles' => null,                                   
-                                    'usuario' => $Id_Usuario,
-                                    'rol' => $Id_Rol
+                                    'usuariorole' => $usuariorole,                                   
+                                    'usuario' => $usuario,
+                                    'role' => $role
                                 ])
 
                                 <div class="pt-4 flex gap-3">                                    

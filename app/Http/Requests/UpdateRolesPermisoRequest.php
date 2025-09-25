@@ -6,12 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateRolesPermisoRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +19,17 @@ class UpdateRolesPermisoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'Id_Rol' => 'exists:roles,Id_Rol',
+            'Id_Permiso' => 'exists:permisos,Id_Permiso'
+        ];
+    }
+
+    public function messages()
+    {
+        return [ 
+            'Id_Rol.exists' => 'El rol no existe en la tabla de roles.',
+
+            'Id_Permiso.exists' => 'El permiso no existe en la tabla de permisos.'
         ];
     }
 }

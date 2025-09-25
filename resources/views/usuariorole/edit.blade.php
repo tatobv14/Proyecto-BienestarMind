@@ -11,14 +11,14 @@
                 <div class="py-8">
                     <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white p-6 shadow sm:rounded-lg">
-                             <form action="{{ route('usuariorole.update', $usuariorole->Id_usuario_roles) }}" method="POST" class="space-y-6">
+                             <form action="{{ route('usuariorole.update', $usuariorole) }}" method="POST" class="space-y-6">
                                 @csrf
                                 @method('PUT')
 
                                 @include('usuariorole._form', [
-                                    'usuarioroles' => $usuariorole->Id_usuario_roles,
-                                    'usuario' => $Id_Usuario,
-                                    'rol' => $Id_Rol
+                                    'usuariorole' => $usuariorole,                                   
+                                    'usuario' => $usuario,
+                                    'role' => $role
                                 ])
 
                                 <div class="pt-4 flex gap-3">

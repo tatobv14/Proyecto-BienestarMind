@@ -6,12 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreCategoriaElementoRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +19,16 @@ class StoreCategoriaElementoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'Descripcion' => 'required|string|max:50'                  
         ];
     }
+    public function messages()
+    {
+        return [
+            'Descripcion.required' => 'La descripción es obligatoria.',
+            'Descripcion.string' => 'La descripción debe ser una cadena de texto.',
+            'Descripcion.max' => 'La descripción no debe exceder los 50 caracteres.'
+        ];
+    }
+        
 }

@@ -12,7 +12,7 @@
                <div class="flex justify-end p-2 mr-4">
 <a href="{{ route('categoriaelemento.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold rounded-md px-5 py-3"> Nuevo</a>
 </div>
-            <table id="categoriaelementos" class="display" style="width:100%">   
+            <table id="categoriaelemento" class="display" style="width:100%">   
                 <thead>
                         <tr>
                             <th>Identificador de la categoría</th>
@@ -59,7 +59,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <script>
         $(function () {
-            $('#categoriaelementos').DataTable({
+            $('#categoriaelemento').DataTable({
                 pageLength: 20,
                 dom: 'Bfrtip',
 

@@ -50,9 +50,14 @@ class Asesorium extends Model
 		'update_AT'
 	];
 
-	public function usuario()
+	public function usuarioAsesor()
 	{
 		return $this->belongsTo(Usuario::class, 'Id_Usuario_Asesor');
+	}
+
+	public function usuarioRecibe()
+	{
+		return $this->belongsTo(Usuario::class, 'Id_Usuario_Recibe');
 	}
 
 	public function ficha()

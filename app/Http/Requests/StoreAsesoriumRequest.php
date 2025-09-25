@@ -6,9 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreAsesoriumRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
@@ -21,13 +18,12 @@ class StoreAsesoriumRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'Id_Asesoria' => 'nullable|integer|exists:roles,Id_Rol',
-            'Motivo_asesoria' => 'required|string|max:15|unique:usuario,Documento',
-            'Fecha' => 'required|email|unique:usuario,Correo',
-            'Id_Usuario_Recibe' => 'nullable|string|max:10',
-            'Id_Usuario_Asesor' => 'nullable|string|max:15',
-            'ficha_Id_ficha' => 'required|date',
+        return [            
+            'Motivo_asesoria' => 'required|string|max:255',
+            'Fecha' => 'required|date',
+            'Id_Usuario_Recibe' => 'required|integer|exists:usuario,Id_Usuario',
+            'Id_Usuario_Asesor' => 'required|integer|exists:usuario,Id_Usuario',
+            'ficha_Id_ficha' => 'required|string|exists:ficha,Id_ficha',
         ];
 
     }
@@ -35,16 +31,24 @@ class StoreAsesoriumRequest extends FormRequest
     public function messages()
     {
         return [
-            'Nombres.required' => 'El nombre es obligatorio.',
-            'Apellidos.required' => 'El apellido es obligatorio.',
-            'Documento.required' => 'El documento es obligatorio.',
-            'Documento.unique' => 'Este documento ya está registrado.',
-            'Correo.unique' => 'Este correo ya está registrado.',
-            'Documento.max' => 'El documento no puede superar 15 caracteres.',
-            'Genero.max' => 'El género no puede superar 10 caracteres.',
-            'Telefono.max' => 'El teléfono no puede superar 15 caracteres.',
-            'Contraseña.required' => 'La contraseña es obligatoria.',
-            'Contraseña.min' => 'La contraseña debe tener al menos 8 caracteres.'
+            'Motivo_asesoria.required' => 'El motivo de la asesoría es obligatorio.',
+            'Motivo_asesoria.string' => 'El motivo de la asesoría debe ser una cadena de texto.',
+            'Motivo_asesoria.max' => 'El motivo de la asesoría no debe exceder los 255 caracteres.',
+
+            'Fecha.required' => 'La fecha es obligatoria.',
+            'Fecha.date' => 'La fecha debe ser una fecha válida.',
+
+            'Id_Usuario_Recibe.required' => 'El usuario que recibe asesoria es obligatorio.',
+            'Id_Usuario_Recibe.integer' => 'El usuario que recibe asesoria debe ser un número entero.',
+            'Id_Usuario_Recibe.exists' => 'El usuario que recibe asesoria no existe en la base de datos.',
+
+            'Id_Usuario_Asesor.required' => 'El usuario asesor es obligatorio.',
+            'Id_Usuario_Asesor.integer' => 'El usuario asesor debe ser un número entero.',
+            'Id_Usuario_Asesor.exists' => 'El usuario asesor no existe en la base de datos.',
+
+            'ficha_Id_ficha.required' => 'La ficha es obligatorio.',
+            'ficha_Id_ficha.string' => 'La ficha debe ser una cadena de texto.',
+            'ficha_Id_ficha.exists' => 'La ficha no existe en la base de datos.'
         ];
     }
 }
