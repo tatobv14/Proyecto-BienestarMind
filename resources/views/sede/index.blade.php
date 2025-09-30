@@ -17,7 +17,7 @@
             <table id="sede" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Identificador de la Sede</th>
+                       
                         <th>Nombre</th>
                         <th>Teléfono</th>
                         <th>Dirección</th>
@@ -29,7 +29,7 @@
                 <tbody>
                     @foreach($sede as $sede)
                         <tr>
-                            <td>{{ $sede->Id_Sede }}</td>
+                            
                             <td>{{ $sede->Nombre_sede }}</td>
                             <td>{{ $sede->Telefono_sede }}</td>
                             <td>{{ $sede->Direccion_sede }}</td>

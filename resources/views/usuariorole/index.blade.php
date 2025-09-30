@@ -14,7 +14,7 @@
             <table id="usuariorole" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Identificador</th>
+                       
                         <th>Identificador del Usuario</th>
                         <th>Identificador de la Ficha</th>                        
                         <th>Creado</th>
@@ -25,9 +25,9 @@
                 <tbody>
                     @foreach($usuariorole as $usurol)
                         <tr>
-                            <td>{{ $usurol->Id_usuario_roles }}</td>
-                            <td>[{{ $usurol->Id_Usuario }}] {{ $usurol->usuario->Nombres }} {{ $usurol->usuario->Apellidos }}</td>
-                            <td>[{{ $usurol->Id_Rol }}] {{ $usurol->role->Descripcion }}</td>
+                        
+                            <td>{{ $usurol->usuario->Nombres }} {{ $usurol->usuario->Apellidos }}</td>
+                            <td>{{ $usurol->role->Descripcion }}</td>
                             <td>{{ $usurol->created_AT }}</td>
                             <td>{{ $usurol->update_AT }}</td>
                             <td>

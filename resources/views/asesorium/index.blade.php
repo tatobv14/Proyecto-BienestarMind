@@ -17,7 +17,7 @@ Nuevo</a>
             <table id="asesoriums" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Identificador de la asesoría</th>
+                           
                             <th>Motivo de la asesoría</th>
                             <th>Fecha</th>
                             <th>Receptor asesoría</th>
@@ -31,11 +31,11 @@ Nuevo</a>
                     <tbody>
                 @foreach($asesoriums as $ase)
                             <tr>
-                                <td>{{ $ase->Id_Asesoria }}</td>
+                               
                                 <td>{{ $ase->Motivo_asesoria }}</td>
                                 <td>{{ $ase->Fecha }}</td>
-                                <td>[{{ $ase->Id_Usuario_Recibe }}] {{ $ase->usuarioRecibe->Nombres }} {{ $ase->usuarioRecibe->Apellidos }}</td>
-                                <td>[{{ $ase->Id_Usuario_Asesor }}] {{ $ase->usuarioAsesor->Nombres }} {{ $ase->usuarioAsesor->Apellidos }}</td>                                
+                                <td> {{ $ase->usuarioRecibe->Nombres }} {{ $ase->usuarioRecibe->Apellidos }}</td>
+                                <td> {{ $ase->usuarioAsesor->Nombres }} {{ $ase->usuarioAsesor->Apellidos }}</td>                                
                                 <td>{{ $ase->ficha_Id_ficha }} {{ optional($ase->ficha)->descripcion }}</td>
                                 <td>{{ $ase->created_AT }}</td>
                                 <td>{{ $ase->update_AT }}</td>                                

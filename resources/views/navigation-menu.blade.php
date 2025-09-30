@@ -21,7 +21,7 @@
                     <button @click="open = !open"
                         class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 focus:outline-none transition"
                         :class="{ 'border-indigo-500 text-gray-900': open, 'border-transparent': !open }">
-                        {{ __('Data Tables') }}
+                        {{ __('Menú') }}
                         <svg class="ml-1 h-4 w-4 transform transition-transform duration-200"
                             :class="{ 'rotate-180': open }"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">

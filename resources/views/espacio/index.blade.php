@@ -15,7 +15,7 @@
             <table id="espacio" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Identificador del espacio</th>
+                        
                         <th>Identificador de la sede</th>
                         <th>Nombre del espacio</th>
                         <th>Creado</th>
@@ -26,8 +26,8 @@
                 <tbody>
                     @foreach($espacio as $esp)
                         <tr>
-                            <td>{{ $esp->Id_Espacio }}</td>                            
-                            <td>[{{ $esp->Id_Sede }}] {{ optional($esp->sede)->Nombre_sede }}</td>
+                                                    
+                            <td> {{ optional($esp->sede)->Nombre_sede }}</td>
                             <td>{{ $esp->Nombre_del_espacio }}</td>
                             <td>{{ $esp->created_AT }}</td>
                             <td>{{ $esp->update_AT }}</td>                            

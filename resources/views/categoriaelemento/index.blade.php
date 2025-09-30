@@ -15,7 +15,7 @@
             <table id="categoriaelemento" class="display" style="width:100%">   
                 <thead>
                         <tr>
-                            <th>Identificador de la categoría</th>
+                           
                             <th>Descripción</th>
                             <th>Creado</th>
                             <th>Última modificación</th>
@@ -26,7 +26,7 @@
                         @foreach($categoriaelementos as $cat)
                             <tr>
                                
-                                <td>{{ $cat->Id_Categoria }}</td>
+                                
                                 <td>{{ $cat->Descripcion }}</td>
                                 <td>{{ $cat->created_AT }}</td>
                                 <td>{{ $cat->update_AT }}</td>

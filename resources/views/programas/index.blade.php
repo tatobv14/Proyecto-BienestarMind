@@ -20,7 +20,7 @@
                     <table id="programas" class="display w-full">
                         <thead>
                             <tr>
-                                <th>Identificador del Programa</th>
+                               
                                 <th>Nombre Programa</th>
                                 <th>Descripción</th>
                                 <th>Creado</th>
@@ -31,7 +31,7 @@
                         <tbody>
                             @foreach($programas as $prog)
                                 <tr>
-                                    <td>{{ $prog->Id_Programa }}</td>
+                                   
                                     <td>{{ $prog->Nombre_programa }}</td>
                                     <td>{{ $prog->Descripcion }}</td>
                                     <td>{{ $prog->created_AT }}</td>

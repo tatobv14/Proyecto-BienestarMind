@@ -22,7 +22,7 @@
             <table id="ficha" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Identificador de la ficha</th>
+                      
                         <th>Identificador del programa</th>
                         <th>Descripción</th>
                         <th>Jornada</th>
@@ -34,8 +34,8 @@
                 <tbody>
                     @foreach($ficha as $fic)
                         <tr>
-                            <td>{{ $fic->Id_ficha }}</td>                            
-                            <td>[{{ $fic->Id_Programa }}] {{ optional($fic->programa)->Nombre_programa }}</td>
+                                                  
+                            <td>{{ optional($fic->programa)->Nombre_programa }}</td>
                             <td>{{ $fic->descripcion }}</td>
                             <td>{{ $fic->jornada_ficha }}</td>
                             <td>{{ $fic->created_AT }}</td>

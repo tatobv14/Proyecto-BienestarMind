@@ -15,7 +15,7 @@
             <table id="reservaespacio" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Identificador de la reserva del espacio</th>
+                      
                         <th>Fecha de Reserva</th>
                         <th>Identificador del Usuario</th>
                         <th>Identificador del Espacio</th>
@@ -30,10 +30,10 @@
                 <tbody>
                     @foreach($reservaespacio as $resesp)
                         <tr>
-                            <td>{{ $resesp->Id_ReservaEspacio }}</td>
+                           
                             <td>{{ $resesp->Fecha_Reserva }}</td>
-                            <td>{{ $resesp->Id_Usuario }} {{ optional($resesp->usuario)->Nombres }} {{ optional($resesp->usuario)->Apellidos }}</td>
-                            <td>{{ $resesp->Id_Espacio }} {{ optional($resesp->elemento)->Nombre_del_espacio }} </td>                            
+                            <td>{{ optional($resesp->usuario)->Nombres }} {{ optional($resesp->usuario)->Apellidos }}</td>
+                            <td> {{ optional($resesp->espacio)->Nombre_del_espacio }} </td>                            
                             <td>{{ $resesp->Id_ficha }} {{ optional($resesp->ficha)->descripcion }} </td>                            
                             <td>{{ $resesp->Motivo_Reserva }}</td>
                             <td>{{ $resesp->Duracion }}</td>

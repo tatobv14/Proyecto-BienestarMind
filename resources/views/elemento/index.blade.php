@@ -16,7 +16,7 @@
                     
                 <thead>
                         <tr>                            
-                            <th>Identificador del Elemento</th>
+                          
                             <th>Identificador de la Categoria</th>
                             <th>Estado</th>
                             <th>Nombre</th>
@@ -29,8 +29,8 @@
                         @foreach($elementos as $ele)
                             <tr>
                                
-                                <td>{{ $ele->Id_Elemento }}</td>                                
-                                <td>[{{ $ele->Id_Categoria }}] {{ optional($ele->categoria_elemento)->Descripcion }}  
+                                                               
+                                <td>{{ optional($ele->categoria_elemento)->Descripcion }}  
                                 <td>{{ $ele->Estado_Elemento }}</td>
                                 <td>{{ $ele->Nombre_Elemento }}</td>
                                 <td>{{ $ele->created_AT }}</td>

@@ -15,7 +15,7 @@
             <table id="role" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Identificador del rol</th>
+                        
                         <th>Descripción</th>                        
                         <th>Creado</th>
                         <th>Última modificación</th>
@@ -25,7 +25,7 @@
                 <tbody>
                     @foreach($role as $rol)
                         <tr>
-                            <td>{{ $rol->Id_Rol }}</td>
+                           
                             <td>{{ $rol->Descripcion }}</td>
                             <td>{{ $rol->created_AT }}</td>
                             <td>{{ $rol->update_AT }}</td>

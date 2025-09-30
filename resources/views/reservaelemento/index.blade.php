@@ -15,7 +15,7 @@
             <table id="reservaelemento" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Identificador de la reserva del elemento</th>
+                        
                         <th>Fecha de Reserva</th>
                         <th>Identificador del usuario</th>
                         <th>Identificador del Elemento</th>
@@ -29,10 +29,10 @@
                 <tbody>
                     @foreach($reservaelemento as $reser)
                         <tr>
-                            <td>{{ $reser->Id_ReservaElemento }}</td>
+                          
                             <td>{{ $reser->Fecha_Reserva }}</td>                            
-                            <td>{{ $reser->Id_Usuario }} {{ optional($reser->usuario)->Nombres }} {{ optional($reser->usuario)->Apellidos }}</td>
-                            <td>{{ $reser->Id_Elemento }} {{ optional($reser->elemento)->Nombre_Elemento }} </td>                            
+                            <td>{{ optional($reser->usuario)->Nombres }} {{ optional($reser->usuario)->Apellidos }}</td>
+                            <td>{{ optional($reser->elemento)->Nombre_Elemento }} </td>                            
                             <td>{{ $reser->Id_ficha }} {{ optional($reser->ficha)->descripcion }} </td>                            
                             <td>{{ $reser->Descripcion_Reserva }}</td>
                             <td>{{ $reser->created_AT }}</td>

@@ -14,7 +14,7 @@
             <table id="usuario" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Identificador del Usuario</th>
+                       
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Correo</th>
@@ -26,7 +26,7 @@
                 <tbody>
                     @foreach($usuarios as $usu)
                         <tr>
-                            <td>{{ $usu->Id_Usuario }}</td>
+                         
                             <td>{{ $usu->Nombres }}</td>
                             <td>{{ $usu->Apellidos }}</td>
                             <td>{{ $usu->Correo }}</td>
